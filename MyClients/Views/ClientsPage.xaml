@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MyClients.Views.ClientsPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Listado de Clientes">
+
+    <Grid RowDefinitions="Auto,*">
+
+        <Button
+            Grid.Row="0"
+            Margin="10"
+            Clicked="NewClientButton_Clicked"
+            HorizontalOptions="End"
+            Text="+ Agregar Cliente" />
+
+        <CollectionView Grid.Row="1" ItemsSource="{Binding Clients}">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Margin="10">
+                        <VerticalStackLayout>
+                            <Label FontAttributes="Bold" Text="{Binding Name}" />
+
+                            <Label Text="{Binding Phone}" />
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+    </Grid>
+
+</ContentPage>

@@ -1,4 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
+using MyClients.Views;
+using MyClientsModel.Service;
+using MyClientsModel.ViewModel;
 
 namespace MyClients
 {
@@ -18,6 +21,15 @@ namespace MyClients
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
+            // Services
+            builder.Services.AddSingleton<DatabaseService>();
+
+            // View Model
+            builder.Services.AddTransient<ClientsViewModel>();
+
+            // Forms
+            builder.Services.AddTransient<ClientsPage>();
+            builder.Services.AddTransient<ClientFormPage>();
 
             return builder.Build();
         }
