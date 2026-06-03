@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "O0E7E4JTcFU=",
+  "dgSpecHash": "FjQdb2FgGbw=",
   "success": true,
-  "projectFilePath": "C:\\Users\\USUARIO\\source\\repos\\MyClients\\MyClients\\MyClients\\MyClients.csproj",
+  "projectFilePath": "C:\\Users\\USUARIO\\source\\repos\\MyClients\\MyClients\\MyClients.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\USUARIO\\.nuget\\packages\\googlegson\\2.10.1.4\\googlegson.2.10.1.4.nupkg.sha512",
     "C:\\Users\\USUARIO\\.nuget\\packages\\microsoft.extensions.configuration\\8.0.0\\microsoft.extensions.configuration.8.0.0.nupkg.sha512",
