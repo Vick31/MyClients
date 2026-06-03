@@ -10,7 +10,16 @@ namespace MyClientsModel.ViewModel
     {
         private readonly DatabaseService _database;
 
-        public ObservableCollection<Client> Clients { get; } = new();
+        private ObservableCollection<Client> _clients = new();
+        public ObservableCollection<Client> Clients
+        {
+            get => _clients;
+            set
+            {
+                _clients = value;
+                OnPropertyChanged();
+            }
+        }
 
         public ClientsViewModel(DatabaseService database)
         {
@@ -19,14 +28,9 @@ namespace MyClientsModel.ViewModel
 
         public async Task LoadClientsAsync()
         {
-            Clients.Clear();
-
             var clients = await _database.GetClientsAsync();
 
-            foreach (var client in clients)
-            {
-                Clients.Add(client);
-            }
+            Clients = new ObservableCollection<Client>(clients);
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;

@@ -5,31 +5,88 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="Listado de Clientes">
 
-    <Grid RowDefinitions="Auto,*">
+    <Grid RowDefinitions="Auto,Auto,*">
+        <Grid Padding="20,15" ColumnDefinitions="*,Auto">
 
-        <Button
-            Grid.Row="0"
+            <VerticalStackLayout>
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="28"
+                    Text="Información" />
+
+                <Label
+                    FontSize="14"
+                    Opacity="0.7"
+                    Text="Administra tus Clientes" />
+
+            </VerticalStackLayout>
+
+            <Button
+                Grid.Column="1"
+                Clicked="NewClientButton_Clicked"
+                CornerRadius="25"
+                HeightRequest="50"
+                Text="+ Nuevo"
+                VerticalOptions="Center"
+                WidthRequest="100" />
+
+        </Grid>
+
+        <SearchBar
+            Grid.Row="1"
+            Margin="15,0"
+            Placeholder="Buscar clientes..." />
+
+        <CollectionView
+            Grid.Row="2"
             Margin="10"
-            Clicked="NewClientButton_Clicked"
-            HorizontalOptions="End"
-            Text="+ Agregar Cliente" />
-
-        <CollectionView Grid.Row="1" ItemsSource="{Binding Clients}">
+            ItemsSource="{Binding Clients}"
+            SelectionMode="None">
 
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Frame Margin="10">
-                        <VerticalStackLayout>
-                            <Label FontAttributes="Bold" Text="{Binding Name}" />
 
-                            <Label Text="{Binding Phone}" />
-                        </VerticalStackLayout>
-                    </Frame>
+                    <Border
+                        Margin="0,5"
+                        Padding="15"
+                        StrokeShape="RoundRectangle 15">
+
+                        <Grid ColumnDefinitions="60,*">
+                            <Border
+                                HeightRequest="50"
+                                StrokeShape="RoundRectangle 25"
+                                WidthRequest="50">
+
+                                <Label
+                                    FontFamily="FontAwesome"
+                                    FontSize="24"
+                                    HorizontalOptions="Center"
+                                    Text="User"
+                                    VerticalOptions="Center" />
+
+                            </Border>
+
+                            <VerticalStackLayout
+                                Grid.Column="1"
+                                Margin="10,0,0,0"
+                                VerticalOptions="Center">
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="16"
+                                    Text="{Binding Name}" />
+
+                                <Label
+                                    FontSize="13"
+                                    Opacity="0.7"
+                                    Text="{Binding Phone}" />
+
+                            </VerticalStackLayout>
+                        </Grid>
+                    </Border>
+
                 </DataTemplate>
             </CollectionView.ItemTemplate>
 
         </CollectionView>
-
     </Grid>
-
 </ContentPage>

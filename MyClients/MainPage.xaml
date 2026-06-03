@@ -2,17 +2,42 @@
 <ContentPage
     x:Class="MyClients.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="">
 
     <ScrollView>
         <VerticalStackLayout Padding="20">
 
-            <Label
-                FontSize="32"
-                HorizontalOptions="Center"
-                Text="MyClients" />
+            <FlexLayout
+                Direction="Row"
+                JustifyContent="Start"
+                Wrap="Wrap">
 
-            <Button Clicked="ClientsButton_Clicked" Text="Clients" />
+                <Frame
+                    Padding="10"
+                    HeightRequest="100"
+                    WidthRequest="100">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ClientsButton_Clicked" />
+                    </Frame.GestureRecognizers>
+
+                    <VerticalStackLayout VerticalOptions="Center">
+
+                        <Label
+                            FontFamily="FontAwesome"
+                            FontSize="40"
+                            HorizontalOptions="Center"
+                            Text="&#xF0C0;" />
+
+                        <Label
+                            FontAttributes="Bold"
+                            HorizontalOptions="Center"
+                            Text="Clientes" />
+
+                    </VerticalStackLayout>
+                </Frame>
+
+            </FlexLayout>
 
         </VerticalStackLayout>
     </ScrollView>
