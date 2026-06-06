@@ -26,7 +26,7 @@
                 Clicked="NewClientButton_Clicked"
                 CornerRadius="25"
                 HeightRequest="50"
-                Text="+ Nuevo"
+                Text="➕ Nuevo"
                 VerticalOptions="Center"
                 WidthRequest="100" />
 
@@ -43,6 +43,32 @@
             ItemsSource="{Binding Clients}"
             SelectionMode="None">
 
+            <CollectionView.EmptyView>
+                <VerticalStackLayout
+                    Padding="40"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+
+                    <Label
+                        FontSize="60"
+                        HorizontalTextAlignment="Center"
+                        Text="📭" />
+
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="18"
+                        HorizontalTextAlignment="Center"
+                        Text="No hay clientes registrados" />
+
+                    <Label
+                        FontSize="14"
+                        HorizontalTextAlignment="Center"
+                        Opacity="0.7"
+                        Text="Presiona 'Nuevo' para crear tu primer cliente" />
+
+                </VerticalStackLayout>
+            </CollectionView.EmptyView>
+
             <CollectionView.ItemTemplate>
                 <DataTemplate>
 
@@ -51,6 +77,12 @@
                         Padding="15"
                         StrokeShape="RoundRectangle 15">
 
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="Client_Tapped"
+                                CommandParameter="{Binding}" />
+                        </Border.GestureRecognizers>
+
                         <Grid ColumnDefinitions="60,*">
                             <Border
                                 HeightRequest="50"
@@ -58,10 +90,9 @@
                                 WidthRequest="50">
 
                                 <Label
-                                    FontFamily="FontAwesome"
                                     FontSize="24"
                                     HorizontalOptions="Center"
-                                    Text="User"
+                                    Text="👤"
                                     VerticalOptions="Center" />
 
                             </Border>

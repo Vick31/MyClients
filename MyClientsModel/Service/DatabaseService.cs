@@ -18,6 +18,7 @@ namespace MyClientsModel.Service
             _database = new SQLiteAsyncConnection(dbPath);
 
             await _database.CreateTableAsync<Client>();
+            await _database.CreateTableAsync<ClientAction>();
         }
 
         public async Task<List<Client>> GetClientsAsync()
@@ -41,5 +42,43 @@ namespace MyClientsModel.Service
             await Init();
             return await _database!.DeleteAsync(client);
         }
+
+        public async Task<List<ClientAction>> GetClientActionAsync()
+        {
+            await Init();
+            return await _database!.Table<ClientAction>().ToListAsync();
+        }
+
+        public async Task<List<ClientAction>> GetServicesByClientAsync(int clientId)
+        {
+            await Init();
+
+            return await _database!
+                .Table<ClientAction>()
+                .Where(x => x.ClientId == clientId)
+                .ToListAsync();
+        }
+
+        public async Task<int> SaveClientActionAsync(ClientAction clientAction)
+        {
+            await Init();
+
+            if (clientAction.Id != 0)
+                return await _database!.UpdateAsync(clientAction);
+
+            return await _database!.InsertAsync(clientAction);
+        }
+
+        public async Task<int> SaveActionAsync(ClientAction clientAction)
+        {
+            await Init();
+
+            if (clientAction.Id != 0)
+                return await _database!.UpdateAsync(clientAction);
+
+            return await _database!.InsertAsync(clientAction);
+        }
+
+
     }
 }

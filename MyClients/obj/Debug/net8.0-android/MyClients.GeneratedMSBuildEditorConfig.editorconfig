@@ -12,49 +12,61 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MyClients
-build_property.ProjectDir = C:\Users\USUARIO\source\repos\MyClients\MyClients\
+build_property.ProjectDir = C:\Users\msper\source\repos\MyClients\MyClients\MyClients\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/USUARIO/source/repos/MyClients/MyClients/App.xaml]
+[C:/Users/msper/source/repos/MyClients/MyClients/MyClients/App.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MyClients.App.xaml
 build_metadata.AdditionalFiles.TargetPath = App.xaml
 build_metadata.AdditionalFiles.RelativePath = App.xaml
 
-[C:/Users/USUARIO/source/repos/MyClients/MyClients/AppShell.xaml]
+[C:/Users/msper/source/repos/MyClients/MyClients/MyClients/AppShell.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MyClients.AppShell.xaml
 build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
 build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
 
-[C:/Users/USUARIO/source/repos/MyClients/MyClients/MainPage.xaml]
+[C:/Users/msper/source/repos/MyClients/MyClients/MyClients/MainPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MyClients.MainPage.xaml
 build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
 build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
 
-[C:/Users/USUARIO/source/repos/MyClients/MyClients/Resources/Styles/Colors.xaml]
+[C:/Users/msper/source/repos/MyClients/MyClients/MyClients/Resources/Styles/Colors.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MyClients.Resources.Styles.Colors.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
 
-[C:/Users/USUARIO/source/repos/MyClients/MyClients/Resources/Styles/Styles.xaml]
+[C:/Users/msper/source/repos/MyClients/MyClients/MyClients/Resources/Styles/Styles.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MyClients.Resources.Styles.Styles.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
 
-[C:/Users/USUARIO/source/repos/MyClients/MyClients/Views/ClientFormPage.xaml]
+[C:/Users/msper/source/repos/MyClients/MyClients/MyClients/Views/ClientActionPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MyClients.Views.ClientActionPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\ClientActionPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\ClientActionPage.xaml
+
+[C:/Users/msper/source/repos/MyClients/MyClients/MyClients/Views/ClientFormPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MyClients.Views.ClientFormPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\ClientFormPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\ClientFormPage.xaml
 
-[C:/Users/USUARIO/source/repos/MyClients/MyClients/Views/ClientsPage.xaml]
+[C:/Users/msper/source/repos/MyClients/MyClients/MyClients/Views/ClientServicesPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MyClients.Views.ClientServicesPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\ClientServicesPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\ClientServicesPage.xaml
+
+[C:/Users/msper/source/repos/MyClients/MyClients/MyClients/Views/ClientsPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MyClients.Views.ClientsPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\ClientsPage.xaml

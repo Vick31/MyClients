@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MyClients.Views.ClientServicesPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="ClientServicesPage">
+    <Grid RowDefinitions="Auto,*">
+
+        <VerticalStackLayout Padding="15" Spacing="10">
+
+            <Label FontAttributes="Bold" Text="Cliente" />
+
+            <Picker
+                Title="Seleccione un cliente"
+                ItemDisplayBinding="{Binding Name}"
+                ItemsSource="{Binding Clients}"
+                SelectedItem="{Binding SelectedClient}" />
+
+        </VerticalStackLayout>
+
+        <CollectionView
+            Grid.Row="1"
+            Margin="10"
+            ItemsSource="{Binding ClientAction}">
+            <CollectionView.EmptyView>
+                <VerticalStackLayout
+                    Padding="40"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+
+                    <Label
+                        FontSize="60"
+                        HorizontalTextAlignment="Center"
+                        Text="✂️" />
+
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="18"
+                        HorizontalTextAlignment="Center"
+                        Text="No hay servicios registrados" />
+
+                    <Label
+                        FontSize="14"
+                        HorizontalTextAlignment="Center"
+                        Opacity="0.7"
+                        Text="Seleccione un cliente o registre su primer servicio" />
+
+                </VerticalStackLayout>
+            </CollectionView.EmptyView>
+            <CollectionView.ItemTemplate>
+
+                <DataTemplate>
+
+                    <Border
+                        Margin="0,5"
+                        Padding="15"
+                        StrokeShape="RoundRectangle 10">
+
+                        <VerticalStackLayout>
+
+                            <Grid ColumnDefinitions="*,Auto">
+
+                                <Label FontAttributes="Bold" Text="{Binding ActionType}" />
+
+                                <Label Grid.Column="1" Text="{Binding ActionDate, StringFormat='{0:dd/MM/yyyy}'}" />
+
+                            </Grid>
+
+                            <Label
+                                FontSize="12"
+                                Opacity="0.7"
+                                Text="{Binding Notes}" />
+
+                        </VerticalStackLayout>
+
+                    </Border>
+
+                </DataTemplate>
+
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+    </Grid>
+
+</ContentPage>

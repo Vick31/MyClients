@@ -23,7 +23,7 @@ public partial class ClientFormPage : ContentPage
 
         await _database.SaveClientAsync(client);
 
-        await DisplayAlert("Success", "Client saved", "OK");
+        await DisplayAlert("", "Client guardado", "OK");
 
         await Navigation.PopAsync();
     }

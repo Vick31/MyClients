@@ -13,5 +13,10 @@ namespace MyClients
         {
             await Shell.Current.GoToAsync(nameof(ClientsPage));
         }
+
+        private async void ServiceButton_Clicked(object sender, TappedEventArgs e)
+        {
+            await Shell.Current.GoToAsync(nameof(ClientServicesPage));
+        }
     }
 }

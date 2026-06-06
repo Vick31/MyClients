@@ -12,6 +12,8 @@ namespace MyClients
 
             Routing.RegisterRoute(nameof(ClientsPage), typeof(ClientsPage));
             Routing.RegisterRoute(nameof(ClientFormPage), typeof(ClientFormPage));
+            Routing.RegisterRoute(nameof(ClientActionPage), typeof(ClientActionPage));
+            Routing.RegisterRoute(nameof(ClientServicesPage), typeof(ClientServicesPage));
         }
     }
 }

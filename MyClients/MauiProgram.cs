@@ -27,10 +27,14 @@ namespace MyClients
 
             // View Model
             builder.Services.AddTransient<ClientsViewModel>();
+            builder.Services.AddTransient<ClientActionViewModel>();
+            builder.Services.AddTransient<ClientServicesViewModel>();
 
             // Forms
             builder.Services.AddTransient<ClientsPage>();
             builder.Services.AddTransient<ClientFormPage>();
+            builder.Services.AddTransient<ClientActionPage>();
+            builder.Services.AddTransient<ClientServicesPage>();
 
             return builder.Build();
         }
