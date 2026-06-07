@@ -3,121 +3,189 @@
     x:Class="MyClients.Views.ClientsPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    Title="Listado de Clientes">
+    Title="Clientes">
 
-    <Grid RowDefinitions="Auto,Auto,*">
-        <Grid Padding="20,15" ColumnDefinitions="*,Auto">
+    <Grid>
 
-            <VerticalStackLayout>
+        <Grid RowDefinitions="Auto,Auto,Auto,*">
+
+            <!--  Encabezado  -->
+            <VerticalStackLayout Grid.Row="0" Padding="20,20,20,10">
+
                 <Label
                     FontAttributes="Bold"
-                    FontSize="28"
-                    Text="Información" />
+                    FontSize="30"
+                    Text="👥 Mis Clientes" />
 
                 <Label
                     FontSize="14"
                     Opacity="0.7"
-                    Text="Administra tus Clientes" />
+                    Text="Gestiona tu cartera de clientes y servicios" />
+
+                <Label
+                    Margin="0,5,0,0"
+                    FontSize="13"
+                    Opacity="0.6"
+                    Text="{Binding Clients.Count, StringFormat='Clientes registrados: {0}'}" />
 
             </VerticalStackLayout>
 
-            <Button
-                Grid.Column="1"
-                Clicked="NewClientButton_Clicked"
-                CornerRadius="25"
-                HeightRequest="50"
-                Text="➕ Nuevo"
-                VerticalOptions="Center"
-                WidthRequest="100" />
+            <!--  Búsqueda  -->
+            <Border
+                Grid.Row="1"
+                Margin="15,0"
+                Padding="5"
+                StrokeShape="RoundRectangle 15">
+
+                <SearchBar
+                    Placeholder="🔍 Buscar cliente..."
+                    SearchCommand="{Binding SearchCommand}"
+                    Text="{Binding SearchText}" />
+
+            </Border>
+
+            <!--  Mensaje  -->
+            <Border
+                Grid.Row="2"
+                Margin="15,10,15,10"
+                Padding="12"
+                StrokeShape="RoundRectangle 10">
+
+                <Grid ColumnDefinitions="Auto,*">
+
+                    <Label
+                        FontSize="24"
+                        Text="💡"
+                        VerticalOptions="Start" />
+
+                    <Label
+                        Grid.Column="1"
+                        Margin="10,0,0,0"
+                        LineBreakMode="WordWrap"
+                        Opacity="0.8"
+                        Text="Toca un cliente para registrar servicios, consultar historial o editar su información." />
+
+                </Grid>
+
+            </Border>
+
+            <!--  Lista  -->
+            <CollectionView
+                Grid.Row="3"
+                Margin="10,0"
+                ItemsSource="{Binding Clients}"
+                SelectionMode="None">
+
+                <CollectionView.EmptyView>
+
+                    <VerticalStackLayout
+                        Padding="50"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center">
+
+                        <Label
+                            FontSize="80"
+                            HorizontalTextAlignment="Center"
+                            Text="👥" />
+
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="22"
+                            HorizontalTextAlignment="Center"
+                            Text="Aún no tienes clientes" />
+
+                        <Label
+                            Margin="20,10,20,0"
+                            HorizontalTextAlignment="Center"
+                            LineBreakMode="WordWrap"
+                            Opacity="0.7"
+                            Text="Comienza agregando tu primer cliente para registrar servicios y consultar historiales." />
+
+                    </VerticalStackLayout>
+
+                </CollectionView.EmptyView>
+
+                <CollectionView.ItemTemplate>
+
+                    <DataTemplate>
+
+                        <Border
+                            Margin="0,5"
+                            Padding="15"
+                            BackgroundColor="{Binding ColorHex}"
+                            StrokeShape="RoundRectangle 18">
+
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer CommandParameter="{Binding}" Tapped="Client_Tapped" />
+                            </Border.GestureRecognizers>
+
+                            <Grid ColumnDefinitions="60,*,Auto">
+
+                                <!--  Avatar  -->
+                                <Border
+                                    HeightRequest="50"
+                                    StrokeShape="RoundRectangle 25"
+                                    WidthRequest="50">
+
+                                    <Label
+                                        FontAttributes="Bold"
+                                        FontSize="18"
+                                        HorizontalOptions="Center"
+                                        Text="👤"
+                                        VerticalOptions="Center" />
+
+                                </Border>
+
+                                <!--  Datos  -->
+                                <VerticalStackLayout
+                                    Grid.Column="1"
+                                    Margin="10,0,0,0"
+                                    VerticalOptions="Center">
+
+                                    <Label
+                                        FontAttributes="Bold"
+                                        FontSize="16"
+                                        Text="{Binding Name}" />
+
+                                    <Label
+                                        FontSize="13"
+                                        Opacity="0.7"
+                                        Text="{Binding Phone, StringFormat='📱 {0}'}" />
+
+                                </VerticalStackLayout>
+
+                                <!--  Flecha  -->
+                                <Label
+                                    Grid.Column="2"
+                                    FontSize="24"
+                                    Opacity="0.4"
+                                    Text="›"
+                                    VerticalOptions="Center" />
+
+                            </Grid>
+
+                        </Border>
+
+                    </DataTemplate>
+
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
 
         </Grid>
 
-        <SearchBar
-            Grid.Row="1"
-            Margin="15,0"
-            Placeholder="Buscar clientes..." />
+        <!--  Botón flotante  -->
+        <Button
+            Margin="20"
+            Clicked="NewClientButton_Clicked"
+            CornerRadius="30"
+            FontSize="24"
+            HeightRequest="60"
+            HorizontalOptions="End"
+            Text="➕"
+            VerticalOptions="End"
+            WidthRequest="60" />
 
-        <CollectionView
-            Grid.Row="2"
-            Margin="10"
-            ItemsSource="{Binding Clients}"
-            SelectionMode="None">
-
-            <CollectionView.EmptyView>
-                <VerticalStackLayout
-                    Padding="40"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center">
-
-                    <Label
-                        FontSize="60"
-                        HorizontalTextAlignment="Center"
-                        Text="📭" />
-
-                    <Label
-                        FontAttributes="Bold"
-                        FontSize="18"
-                        HorizontalTextAlignment="Center"
-                        Text="No hay clientes registrados" />
-
-                    <Label
-                        FontSize="14"
-                        HorizontalTextAlignment="Center"
-                        Opacity="0.7"
-                        Text="Presiona 'Nuevo' para crear tu primer cliente" />
-
-                </VerticalStackLayout>
-            </CollectionView.EmptyView>
-
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-
-                    <Border
-                        Margin="0,5"
-                        Padding="15"
-                        StrokeShape="RoundRectangle 15">
-
-                        <Border.GestureRecognizers>
-                            <TapGestureRecognizer
-                                Tapped="Client_Tapped"
-                                CommandParameter="{Binding}" />
-                        </Border.GestureRecognizers>
-
-                        <Grid ColumnDefinitions="60,*">
-                            <Border
-                                HeightRequest="50"
-                                StrokeShape="RoundRectangle 25"
-                                WidthRequest="50">
-
-                                <Label
-                                    FontSize="24"
-                                    HorizontalOptions="Center"
-                                    Text="👤"
-                                    VerticalOptions="Center" />
-
-                            </Border>
-
-                            <VerticalStackLayout
-                                Grid.Column="1"
-                                Margin="10,0,0,0"
-                                VerticalOptions="Center">
-                                <Label
-                                    FontAttributes="Bold"
-                                    FontSize="16"
-                                    Text="{Binding Name}" />
-
-                                <Label
-                                    FontSize="13"
-                                    Opacity="0.7"
-                                    Text="{Binding Phone}" />
-
-                            </VerticalStackLayout>
-                        </Grid>
-                    </Border>
-
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-
-        </CollectionView>
     </Grid>
+
 </ContentPage>

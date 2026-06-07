@@ -1,5 +1,5 @@
+using MyClients.Helpers;
 using MyClientsModel.Model;
-using MyClientsModel.Service;
 using MyClientsModel.ViewModel;
 
 namespace MyClients.Views;
@@ -29,7 +29,7 @@ public partial class ClientActionPage : ContentPage
     {
         if (ActionTypePicker.SelectedItem == null)
         {
-            await DisplayAlert("Error", "Select an action type", "OK");
+            await DialogService.Error("Debe seleccionar el Tipo de Servicio");
             return;
         }
 
@@ -43,9 +43,7 @@ public partial class ClientActionPage : ContentPage
         };
 
         await _clientActionViewModel.SaveClientsAsync(action);
-
-        await DisplayAlert("Success", "Service saved", "OK");
-
+        await DialogService.Success("Datos Guardados Correctamente");
         await Navigation.PopAsync();
     }
 }

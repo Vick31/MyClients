@@ -1,3 +1,5 @@
+using CommunityToolkit.Maui.Views;
+using MyClients.Views.Modal;
 using MyClientsModel.Model;
 using MyClientsModel.ViewModel;
 
@@ -29,7 +31,8 @@ public partial class ClientsPage : ContentPage
     {
         if (e.Parameter is Client client)
         {
-            await Shell.Current.GoToAsync($"{nameof(ClientActionPage)}?ClientId={client.Id}");
+            await this.ShowPopupAsync(
+            new ClientOptionsPopup(client.Id));
         }
     }
 }

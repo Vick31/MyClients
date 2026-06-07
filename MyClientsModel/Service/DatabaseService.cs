@@ -27,6 +27,15 @@ namespace MyClientsModel.Service
             return await _database!.Table<Client>().ToListAsync();
         }
 
+        public async Task<Client?> GetClientAsync(int id)
+        {
+            await Init();
+
+            return await _database!
+                .Table<Client>()
+                .FirstOrDefaultAsync(x => x.Id == id);
+        }
+
         public async Task<int> SaveClientAsync(Client client)
         {
             await Init();

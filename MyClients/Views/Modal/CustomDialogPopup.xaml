@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<toolkit:Popup
+    x:Class="MyClients.Views.Modal.CustomDialogPopup"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    Color="Transparent">
+
+    <Border
+        Padding="25"
+        BackgroundColor="Black"
+        StrokeShape="RoundRectangle 25"
+        WidthRequest="320">
+
+        <VerticalStackLayout Spacing="15">
+
+            <HorizontalStackLayout VerticalOptions="Center">
+                <Label
+                    x:Name="lblIcon"
+                    FontSize="22"
+                    VerticalOptions="Center"
+                    VerticalTextAlignment="Center" />
+
+                <Label
+                    x:Name="lblTitle"
+                    Margin="10,0,0,0"
+                    FontAttributes="Bold"
+                    FontSize="22"
+                    VerticalOptions="Center"
+                    VerticalTextAlignment="Center" />
+
+            </HorizontalStackLayout>
+
+            <Label
+                x:Name="lblMessage"
+                FontSize="15"
+                HorizontalTextAlignment="Center" />
+
+            <Button
+                x:Name="btnAccept"
+                Clicked="Accept_Clicked"
+                CornerRadius="15"
+                HeightRequest="50"
+                Text="👍 Entendido" />
+
+        </VerticalStackLayout>
+
+    </Border>
+
+</toolkit:Popup>

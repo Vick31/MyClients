@@ -75,3 +75,15 @@ build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MyClients.Views.ClientsPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\ClientsPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\ClientsPage.xaml
+
+[C:/Users/msper/source/repos/MyClients/MyClients/MyClients/Views/Modal/ClientOptionsModal.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MyClients.Views.Modal.ClientOptionsModal.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Modal\ClientOptionsModal.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Modal\ClientOptionsModal.xaml
+
+[C:/Users/msper/source/repos/MyClients/MyClients/MyClients/Views/Modal/CustomDialogPopup.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MyClients.Views.Modal.CustomDialogPopup.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Modal\CustomDialogPopup.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Modal\CustomDialogPopup.xaml

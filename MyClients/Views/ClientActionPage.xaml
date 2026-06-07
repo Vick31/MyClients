@@ -1,45 +1,101 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MyClients.Views.ClientActionPage"
-             Title="Servicios">
+<ContentPage
+    x:Class="MyClients.Views.ClientActionPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Nuevo Servicio">
+
     <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
 
-        <VerticalStackLayout
-            Padding="20"
-            Spacing="15">
+            <!--  Encabezado  -->
+            <VerticalStackLayout Spacing="5">
 
-            <Label
-                FontAttributes="Bold"
-                FontSize="20"
-                Text="Programar servicio" />
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="28"
+                    Text="✂️ Nuevo Servicio" />
 
-            <Label Text="Tipo de Acción" />
+                <Label
+                    FontSize="14"
+                    Opacity="0.7"
+                    Text="Registra un nuevo servicio para tu cliente." />
 
-            <Picker x:Name="ActionTypePicker" Title="Select action">
-                <Picker.Items>
-                    <x:String>Keratina</x:String>
-                    <x:String>Tinte</x:String>
-                </Picker.Items>
-            </Picker>
+            </VerticalStackLayout>
 
-            <Label Text="Fecha" />
+            <!--  Tarjeta principal  -->
+            <Border Padding="20" StrokeShape="RoundRectangle 15">
 
-            <DatePicker x:Name="ActionDatePicker" />
+                <VerticalStackLayout Spacing="15">
 
-            <Label Text="Comentario" />
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="18"
+                        HorizontalTextAlignment="Center"
+                        Text="Información del Servicio" />
 
-            <Editor
-                x:Name="NotesEditor"
-                AutoSize="TextChanges"
-                HeightRequest="120"
-                Placeholder="comentario..." />
+                    <!--  Tipo  -->
+                    <VerticalStackLayout Spacing="5">
+                        <Label FontAttributes="Bold" Text="🧴 Tipo de Servicio" />
 
+                        <Picker x:Name="ActionTypePicker" Title="Seleccione un servicio">
+                            <Picker.Items>
+                                <x:String>Keratina</x:String>
+                                <x:String>Tinte</x:String>
+                            </Picker.Items>
+                        </Picker>
+                    </VerticalStackLayout>
+
+                    <!--  Fecha  -->
+                    <VerticalStackLayout Spacing="5">
+                        <Label FontAttributes="Bold" Text="📅 Fecha del Servicio" />
+                        <DatePicker x:Name="ActionDatePicker" />
+                    </VerticalStackLayout>
+
+                    <!--  Comentario  -->
+                    <VerticalStackLayout Spacing="5">
+                        <Label FontAttributes="Bold" Text="💬 Comentarios" />
+
+                        <Editor
+                            x:Name="NotesEditor"
+                            AutoSize="TextChanges"
+                            HeightRequest="120"
+                            Placeholder="Ejemplo: Cliente solicita tono rubio ceniza..." />
+                    </VerticalStackLayout>
+                </VerticalStackLayout>
+            </Border>
+
+            <!--  Nota  -->
+            <Border Padding="15" StrokeShape="RoundRectangle 10">
+
+                <Grid ColumnDefinitions="Auto,*">
+
+                    <Label
+                        Grid.Column="0"
+                        FontSize="24"
+                        Text="💡"
+                        VerticalOptions="Start" />
+
+                    <Label
+                        Grid.Column="1"
+                        Margin="10,0,0,0"
+                        LineBreakMode="WordWrap"
+                        Opacity="0.8"
+                        Text="Agrega detalles del servicio para facilitar futuras consultas del historial del cliente." />
+
+                </Grid>
+
+            </Border>
+
+            <!--  Botón  -->
             <Button
                 Clicked="SaveButton_Clicked"
-                Text="Guardar Información" />
+                CornerRadius="15"
+                HeightRequest="55"
+                Text="💾 Guardar Servicio" />
 
         </VerticalStackLayout>
 
     </ScrollView>
+
 </ContentPage>
