@@ -3,64 +3,98 @@
     x:Class="MyClients.Views.ClientFormPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    Title="Nuevo Cliente">
+    Title=""
+    BackgroundColor="{StaticResource PageBackground}">
 
     <ScrollView>
 
-        <VerticalStackLayout Padding="20" Spacing="20">
+        <VerticalStackLayout Padding="10" Spacing="20">
 
             <!--  Encabezado  -->
             <VerticalStackLayout Spacing="5">
 
                 <Label
+                    x:Name="lbTitle"
                     FontAttributes="Bold"
                     FontSize="28"
-                    Text="👤 Nuevo Cliente" />
+                    Text="👤 Nuevo Cliente"
+                    TextColor="{StaticResource TextPrimary}" />
 
                 <Label
                     FontSize="14"
                     Opacity="0.7"
-                    Text="Registra la información básica de tu cliente." />
+                    Text="Registra la información básica de tu cliente."
+                    TextColor="{StaticResource TextSecondary}" />
 
             </VerticalStackLayout>
 
             <!--  Información  -->
-            <Border Padding="20" StrokeShape="RoundRectangle 15">
+            <Border
+                Padding="10"
+                Stroke="{StaticResource BorderColor}"
+                StrokeShape="RoundRectangle 15">
+
 
                 <VerticalStackLayout Spacing="15">
-
                     <Label
                         FontAttributes="Bold"
                         FontSize="18"
                         HorizontalTextAlignment="Center"
-                        Text="👤 Información Personal" />
+                        Text="Información Personal"
+                        TextColor="{StaticResource TextPrimary}" />
 
                     <VerticalStackLayout Spacing="5">
 
-                        <Label FontAttributes="Bold" Text="📝 Nombre" />
+                        <Label
+                            FontAttributes="Bold"
+                            Text="📝 Nombre"
+                            TextColor="{StaticResource TextSecondary}" />
 
-                        <Entry
-                            x:Name="NameEntry"
-                            Placeholder="Ej: Rayito de Luz"
-                            TextTransform="Uppercase" />
+                        <Border
+                            Grid.Row="1"
+                            Padding="10,5"
+                            Background="{StaticResource CardBackground}"
+                            Stroke="{StaticResource BorderColor}"
+                            StrokeShape="RoundRectangle 15">
+
+                            <Entry
+                                x:Name="NameEntry"
+                                Placeholder="Ej: Rayito de Luz"
+                                TextColor="{StaticResource OffBlack}"
+                                TextTransform="Uppercase" />
+                        </Border>
 
                     </VerticalStackLayout>
 
                     <VerticalStackLayout Spacing="5">
+                        <Label
+                            FontAttributes="Bold"
+                            Text="📱 Teléfono"
+                            TextColor="{StaticResource TextSecondary}" />
 
-                        <Label FontAttributes="Bold" Text="📱 Teléfono" />
+                        <Border
+                            Grid.Row="1"
+                            Padding="10,5"
+                            Background="{StaticResource CardBackground}"
+                            Stroke="{StaticResource BorderColor}"
+                            StrokeShape="RoundRectangle 15">
 
-                        <Entry
-                            x:Name="PhoneEntry"
-                            Keyboard="Telephone"
-                            MaxLength="10"
-                            Placeholder="Ej: 3001234567" />
+                            <Entry
+                                x:Name="PhoneEntry"
+                                Keyboard="Telephone"
+                                MaxLength="10"
+                                Placeholder="Ej: 3001234567"
+                                TextColor="{StaticResource OffBlack}" />
+                        </Border>
 
                     </VerticalStackLayout>
 
                     <VerticalStackLayout Spacing="10">
 
-                        <Label FontAttributes="Bold" Text="🎨 Color identificador" />
+                        <Label
+                            FontAttributes="Bold"
+                            Text="🎨 Color identificador"
+                            TextColor="{StaticResource TextSecondary}" />
 
                         <CollectionView
                             x:Name="ColorsCollection"
@@ -87,7 +121,12 @@
 
                         </CollectionView>
 
-                        <Border Padding="10" StrokeShape="RoundRectangle 10">
+                        <Border
+                            Grid.Row="1"
+                            Padding="10,5"
+                            Background="{StaticResource CardBackground}"
+                            Stroke="{StaticResource BorderColor}"
+                            StrokeShape="RoundRectangle 15">
 
                             <HorizontalStackLayout Spacing="10">
 
@@ -101,6 +140,7 @@
                                 <Label
                                     x:Name="SelectedColorLabel"
                                     Text="Azul (#2196F3)"
+                                    TextColor="{StaticResource OffBlack}"
                                     VerticalOptions="Center" />
 
                             </HorizontalStackLayout>
@@ -110,29 +150,44 @@
                     </VerticalStackLayout>
 
                 </VerticalStackLayout>
-
             </Border>
 
             <!--  Consejo  -->
-            <Border Padding="15" StrokeShape="RoundRectangle 10">
+            <!--<Border
+                Padding="15"
+                Background="{StaticResource InfoBackground}"
+                Stroke="{StaticResource Primary}"
+                StrokeShape="RoundRectangle 10">
 
-                <HorizontalStackLayout Spacing="10">
+                <Grid ColumnDefinitions="Auto,*">
 
-                    <Label FontSize="24" Text="💡" />
+                    <Label
+                        FontSize="24"
+                        Text="💡"
+                        VerticalOptions="Center" />
 
-                    <Label Opacity="0.8" Text="Puedes agregar más información del cliente en futuras versiones, como dirección, correo y notas." />
+                    <Label
+                        Grid.Column="1"
+                        Margin="10,0,0,0"
+                        LineBreakMode="WordWrap"
+                        Opacity="0.8"
+                        Text="Puedes agregar más información del cliente en futuras versiones, como dirección, correo y notas."
+                        TextColor="{StaticResource OffBlack}" />
 
-                </HorizontalStackLayout>
+                </Grid>
 
-            </Border>
+            </Border>-->
 
             <!--  Botón  -->
             <Button
                 x:Name="SaveButton"
+                BackgroundColor="{StaticResource ButtonSuccess}"
                 Clicked="SaveButton_Clicked"
                 CornerRadius="15"
+                FontAttributes="Bold"
                 HeightRequest="55"
-                Text="💾 Guardar Cliente" />
+                Text="💾 Guardar Cliente"
+                TextColor="{StaticResource White}" />
 
         </VerticalStackLayout>
 

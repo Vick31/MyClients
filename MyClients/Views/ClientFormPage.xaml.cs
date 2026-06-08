@@ -80,7 +80,7 @@ public partial class ClientFormPage : ContentPage
         if (_editingClient == null)
             return;
 
-        Title = "Editar Cliente";
+        lbTitle.Text = "Editar Cliente";
 
         NameEntry.Text = _editingClient.Name;
         PhoneEntry.Text = _editingClient.Phone;

@@ -3,10 +3,11 @@
     x:Class="MyClients.Views.ClientActionPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    Title="Nuevo Servicio">
+    Title=""
+    BackgroundColor="{StaticResource PageBackground}">
 
     <ScrollView>
-        <VerticalStackLayout Padding="20" Spacing="20">
+        <VerticalStackLayout Padding="10" Spacing="20">
 
             <!--  Encabezado  -->
             <VerticalStackLayout Spacing="5">
@@ -14,17 +15,22 @@
                 <Label
                     FontAttributes="Bold"
                     FontSize="28"
-                    Text="✂️ Nuevo Servicio" />
+                    Text="✂️ Nuevo Servicio"
+                    TextColor="{StaticResource TextPrimary}" />
 
                 <Label
                     FontSize="14"
                     Opacity="0.7"
-                    Text="Registra un nuevo servicio para tu cliente." />
+                    Text="Registra un nuevo servicio para tu cliente."
+                    TextColor="{StaticResource TextSecondary}" />
 
             </VerticalStackLayout>
 
             <!--  Tarjeta principal  -->
-            <Border Padding="20" StrokeShape="RoundRectangle 15">
+            <Border
+                Padding="10"
+                Stroke="{StaticResource BorderColor}"
+                StrokeShape="RoundRectangle 15">
 
                 <VerticalStackLayout Spacing="15">
 
@@ -32,41 +38,84 @@
                         FontAttributes="Bold"
                         FontSize="18"
                         HorizontalTextAlignment="Center"
-                        Text="Información del Servicio" />
+                        Text="Información del Servicio"
+                        TextColor="{StaticResource TextPrimary}" />
 
                     <!--  Tipo  -->
                     <VerticalStackLayout Spacing="5">
-                        <Label FontAttributes="Bold" Text="🧴 Tipo de Servicio" />
+                        <Label
+                            FontAttributes="Bold"
+                            Text="🧴 Tipo de Servicio"
+                            TextColor="{StaticResource TextSecondary}" />
 
-                        <Picker x:Name="ActionTypePicker" Title="Seleccione un servicio">
-                            <Picker.Items>
-                                <x:String>Keratina</x:String>
-                                <x:String>Tinte</x:String>
-                            </Picker.Items>
-                        </Picker>
+                        <Border
+                            Grid.Row="1"
+                            Padding="10,5"
+                            Background="{StaticResource CardBackground}"
+                            Stroke="{StaticResource BorderColor}"
+                            StrokeShape="RoundRectangle 15">
+
+                            <Picker
+                                x:Name="ActionTypePicker"
+                                Title="Seleccione un servicio"
+                                TextColor="{StaticResource OffBlack}">
+                                <Picker.Items>
+                                    <x:String>Keratina</x:String>
+                                    <x:String>Tinte</x:String>
+                                </Picker.Items>
+                            </Picker>
+                        </Border>
                     </VerticalStackLayout>
 
                     <!--  Fecha  -->
                     <VerticalStackLayout Spacing="5">
-                        <Label FontAttributes="Bold" Text="📅 Fecha del Servicio" />
-                        <DatePicker x:Name="ActionDatePicker" />
+                        <Label
+                            FontAttributes="Bold"
+                            Text="📅 Fecha del Servicio"
+                            TextColor="{StaticResource TextSecondary}" />
+
+                        <Border
+                            Grid.Row="1"
+                            Padding="10,5"
+                            Background="{StaticResource CardBackground}"
+                            Stroke="{StaticResource BorderColor}"
+                            StrokeShape="RoundRectangle 15">
+
+                            <DatePicker x:Name="ActionDatePicker" TextColor="{StaticResource OffBlack}" />
+                        </Border>
                     </VerticalStackLayout>
 
                     <!--  Comentario  -->
                     <VerticalStackLayout Spacing="5">
-                        <Label FontAttributes="Bold" Text="💬 Comentarios" />
+                        <Label
+                            FontAttributes="Bold"
+                            Text="💬 Comentarios"
+                            TextColor="{StaticResource TextSecondary}" />
 
-                        <Editor
-                            x:Name="NotesEditor"
-                            AutoSize="TextChanges"
-                            HeightRequest="120"
-                            Placeholder="Ejemplo: Cliente solicita tono rubio ceniza..." />
+                        <Border
+                            Grid.Row="1"
+                            Padding="10,5"
+                            Background="{StaticResource CardBackground}"
+                            Stroke="{StaticResource BorderColor}"
+                            StrokeShape="RoundRectangle 15">
+
+                            <Editor
+                                x:Name="NotesEditor"
+                                AutoSize="TextChanges"
+                                HeightRequest="120"
+                                Placeholder="Ejemplo: Cliente solicita tono rubio ceniza..."
+                                TextColor="{StaticResource OffBlack}" />
+                        </Border>
                     </VerticalStackLayout>
                 </VerticalStackLayout>
             </Border>
 
             <!--  Nota  -->
-            <Border Padding="15" StrokeShape="RoundRectangle 10">
+            <Border
+                Padding="15"
+                Background="{StaticResource InfoBackground}"
+                Stroke="{StaticResource Primary}"
+                StrokeShape="RoundRectangle 10">
 
                 <Grid ColumnDefinitions="Auto,*">
 
@@ -81,7 +130,8 @@
                         Margin="10,0,0,0"
                         LineBreakMode="WordWrap"
                         Opacity="0.8"
-                        Text="Agrega detalles del servicio para facilitar futuras consultas del historial del cliente." />
+                        Text="Agrega detalles del servicio para facilitar futuras consultas del historial del cliente."
+                        TextColor="{StaticResource OffBlack}" />
 
                 </Grid>
 
@@ -89,10 +139,13 @@
 
             <!--  Botón  -->
             <Button
+                BackgroundColor="{StaticResource ButtonSuccess}"
                 Clicked="SaveButton_Clicked"
                 CornerRadius="15"
+                FontAttributes="Bold"
                 HeightRequest="55"
-                Text="💾 Guardar Servicio" />
+                Text="💾 Guardar Servicio"
+                TextColor="{StaticResource White}" />
 
         </VerticalStackLayout>
 

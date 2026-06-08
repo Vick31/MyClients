@@ -8,13 +8,37 @@
 
     <Border
         Padding="20"
-        Background="Black"
+        Background="{StaticResource CardBackground}"
+        Stroke="{StaticResource BorderColor}"
         StrokeShape="RoundRectangle 20">
         <VerticalStackLayout Spacing="10">
-            <Button Clicked="EditClient_Clicked" Text="✏️ Editar Cliente" />
-            <Button Clicked="NewService_Clicked" Text="✂️ Registrar Servicio" />
-            <Button Clicked="ViewHistory_Clicked" Text="📋 Ver Historial" />
-            <Button Clicked="Close_Clicked" Text="❌ Cerrar" />
+            <Button
+                BackgroundColor="{StaticResource ButtonInfo}"
+                Clicked="EditClient_Clicked"
+                FontAttributes="Bold"
+                Text="✏️ Editar Cliente"
+                TextColor="{StaticResource White}" />
+
+            <Button
+                BackgroundColor="{StaticResource ButtonInfo}"
+                Clicked="NewService_Clicked"
+                FontAttributes="Bold"
+                Text="✂️ Registrar Servicio"
+                TextColor="{StaticResource White}" />
+
+            <Button
+                BackgroundColor="{StaticResource ButtonInfo}"
+                Clicked="ViewHistory_Clicked"
+                FontAttributes="Bold"
+                Text="📋 Ver Historial"
+                TextColor="{StaticResource White}" />
+
+            <Button
+                BackgroundColor="{StaticResource ButtonDanger}"
+                Clicked="Close_Clicked"
+                FontAttributes="Bold"
+                Text="Cerrar"
+                TextColor="{StaticResource White}" />
         </VerticalStackLayout>
     </Border>
 </toolkit:Popup>

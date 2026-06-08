@@ -3,7 +3,8 @@
     x:Class="MyClients.Views.ClientsPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    Title="Clientes">
+    Title=""
+    BackgroundColor="{StaticResource PageBackground}">
 
     <Grid>
 
@@ -15,18 +16,21 @@
                 <Label
                     FontAttributes="Bold"
                     FontSize="30"
-                    Text="👥 Mis Clientes" />
+                    Text="👥 Mis Clientes"
+                    TextColor="{StaticResource TextPrimary}" />
 
                 <Label
                     FontSize="14"
                     Opacity="0.7"
-                    Text="Gestiona tu cartera de clientes y servicios" />
+                    Text="Gestiona tu cartera de clientes y servicios"
+                    TextColor="{StaticResource TextSecondary}" />
 
                 <Label
                     Margin="0,5,0,0"
                     FontSize="13"
                     Opacity="0.6"
-                    Text="{Binding Clients.Count, StringFormat='Clientes registrados: {0}'}" />
+                    Text="{Binding Clients.Count, StringFormat='Clientes registrados: {0}'}"
+                    TextColor="{StaticResource TextSecondary}" />
 
             </VerticalStackLayout>
 
@@ -34,13 +38,27 @@
             <Border
                 Grid.Row="1"
                 Margin="15,0"
-                Padding="5"
+                Padding="10,5"
+                Background="{StaticResource CardBackground}"
+                Stroke="{StaticResource BorderColor}"
                 StrokeShape="RoundRectangle 15">
 
-                <SearchBar
-                    Placeholder="🔍 Buscar cliente..."
-                    SearchCommand="{Binding SearchCommand}"
-                    Text="{Binding SearchText}" />
+                <Grid ColumnDefinitions="Auto,*">
+                    <Label
+                        Margin="5,0,10,0"
+                        FontSize="18"
+                        Text="🔍"
+                        TextColor="{StaticResource Primary}"
+                        VerticalOptions="Center" />
+
+                    <Entry
+                        Grid.Column="1"
+                        Placeholder="Buscar cliente..."
+                        PlaceholderColor="{StaticResource Gray500}"
+                        Text="{Binding SearchText}"
+                        TextColor="{StaticResource OffBlack}" />
+
+                </Grid>
 
             </Border>
 
@@ -49,6 +67,8 @@
                 Grid.Row="2"
                 Margin="15,10,15,10"
                 Padding="12"
+                Background="{StaticResource InfoBackground}"
+                Stroke="{StaticResource Primary}"
                 StrokeShape="RoundRectangle 10">
 
                 <Grid ColumnDefinitions="Auto,*">
@@ -63,7 +83,8 @@
                         Margin="10,0,0,0"
                         LineBreakMode="WordWrap"
                         Opacity="0.8"
-                        Text="Toca un cliente para registrar servicios, consultar historial o editar su información." />
+                        Text="Toca un cliente para registrar servicios, consultar historial o editar su información."
+                        TextColor="{StaticResource OffBlack}" />
 
                 </Grid>
 
@@ -77,7 +98,6 @@
                 SelectionMode="None">
 
                 <CollectionView.EmptyView>
-
                     <VerticalStackLayout
                         Padding="50"
                         HorizontalOptions="Center"
@@ -92,38 +112,38 @@
                             FontAttributes="Bold"
                             FontSize="22"
                             HorizontalTextAlignment="Center"
-                            Text="Aún no tienes clientes" />
+                            Text="Aún no tienes clientes"
+                            TextColor="{StaticResource TextPrimary}" />
 
                         <Label
                             Margin="20,10,20,0"
                             HorizontalTextAlignment="Center"
                             LineBreakMode="WordWrap"
                             Opacity="0.7"
-                            Text="Comienza agregando tu primer cliente para registrar servicios y consultar historiales." />
-
+                            Text="Comienza agregando tu primer cliente para registrar servicios y consultar historiales."
+                            TextColor="{StaticResource TextSecondary}" />
                     </VerticalStackLayout>
-
                 </CollectionView.EmptyView>
 
                 <CollectionView.ItemTemplate>
-
                     <DataTemplate>
-
                         <Border
                             Margin="0,5"
                             Padding="15"
                             BackgroundColor="{Binding ColorHex}"
+                            Stroke="{StaticResource BorderColor}"
                             StrokeShape="RoundRectangle 18">
 
                             <Border.GestureRecognizers>
                                 <TapGestureRecognizer CommandParameter="{Binding}" Tapped="Client_Tapped" />
                             </Border.GestureRecognizers>
 
-                            <Grid ColumnDefinitions="60,*,Auto">
+                            <Grid ColumnDefinitions="50,*,Auto">
 
                                 <!--  Avatar  -->
                                 <Border
                                     HeightRequest="50"
+                                    Stroke="{StaticResource BorderColor}"
                                     StrokeShape="RoundRectangle 25"
                                     WidthRequest="50">
 
@@ -163,15 +183,11 @@
                                     VerticalOptions="Center" />
 
                             </Grid>
-
                         </Border>
-
                     </DataTemplate>
 
                 </CollectionView.ItemTemplate>
-
             </CollectionView>
-
         </Grid>
 
         <!--  Botón flotante  -->
@@ -183,7 +199,7 @@
             HeightRequest="60"
             HorizontalOptions="End"
             Text="➕"
-            VerticalOptions="End"
+            VerticalOptions="Start"
             WidthRequest="60" />
 
     </Grid>

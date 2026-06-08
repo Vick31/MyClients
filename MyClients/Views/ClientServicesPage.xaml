@@ -3,49 +3,61 @@
     x:Class="MyClients.Views.ClientServicesPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    Title="Historial de Servicios">
+    Title=""
+    BackgroundColor="{StaticResource PageBackground}">
 
     <Grid RowDefinitions="Auto,*">
 
         <!--  Encabezado  -->
         <ScrollView Grid.Row="0">
-
-            <VerticalStackLayout Padding="20" Spacing="15">
-
+            <VerticalStackLayout Padding="10" Spacing="15">
                 <VerticalStackLayout>
 
                     <Label
                         FontAttributes="Bold"
                         FontSize="28"
-                        Text="📋 Historial de Servicios" />
+                        Text="📋 Historial de Servicios"
+                        TextColor="{StaticResource TextPrimary}" />
 
                     <Label
                         FontSize="14"
                         Opacity="0.7"
-                        Text="Consulta todos los servicios realizados a tus clientes." />
+                        Text="Consulta todos los servicios realizados a tus clientes."
+                        TextColor="{StaticResource TextSecondary}" />
 
                 </VerticalStackLayout>
 
                 <!--  Cliente  -->
-                <Border Padding="15" StrokeShape="RoundRectangle 15">
 
-                    <VerticalStackLayout Spacing="8">
+                <VerticalStackLayout Spacing="8">
+                    <Label
+                        FontAttributes="Bold"
+                        Text="👤 Cliente"
+                        TextColor="{StaticResource TextSecondary}" />
 
-                        <Label FontAttributes="Bold" Text="👤 Cliente" />
+                    <Border
+                        Padding="10,5"
+                        Background="{StaticResource CardBackground}"
+                        Stroke="{StaticResource BorderColor}"
+                        StrokeShape="RoundRectangle 15">
 
                         <Picker
                             x:Name="pickerClient"
                             Title="Seleccione un cliente"
                             ItemDisplayBinding="{Binding Name}"
                             ItemsSource="{Binding Clients}"
-                            SelectedItem="{Binding SelectedClient}" />
+                            SelectedItem="{Binding SelectedClient}"
+                            TextColor="{StaticResource OffBlack}" />
+                    </Border>
+                </VerticalStackLayout>
 
-                    </VerticalStackLayout>
-
-                </Border>
 
                 <!--  Información  -->
-                <Border Padding="12" StrokeShape="RoundRectangle 10">
+                <Border
+                    Padding="12"
+                    Background="{StaticResource InfoBackground}"
+                    Stroke="{StaticResource Primary}"
+                    StrokeShape="RoundRectangle 10">
 
                     <Grid ColumnDefinitions="Auto,*">
 
@@ -59,14 +71,13 @@
                             Margin="10,0,0,0"
                             LineBreakMode="WordWrap"
                             Opacity="0.8"
-                            Text="Selecciona un cliente para visualizar todo su historial de servicios." />
+                            Text="Selecciona un cliente para visualizar todo su historial de servicios."
+                            TextColor="{StaticResource OffBlack}" />
 
                     </Grid>
 
                 </Border>
-
             </VerticalStackLayout>
-
         </ScrollView>
 
         <!--  Lista  -->
@@ -91,26 +102,27 @@
                         FontAttributes="Bold"
                         FontSize="22"
                         HorizontalTextAlignment="Center"
-                        Text="No hay servicios registrados" />
+                        Text="No hay servicios registrados"
+                        TextColor="{StaticResource TextPrimary}" />
 
                     <Label
                         Margin="20,10,20,0"
                         HorizontalTextAlignment="Center"
                         LineBreakMode="WordWrap"
                         Opacity="0.7"
-                        Text="Selecciona un cliente o registra su primer servicio." />
+                        Text="Selecciona un cliente o registra su primer servicio."
+                        TextColor="{StaticResource TextSecondary}" />
 
                 </VerticalStackLayout>
-
             </CollectionView.EmptyView>
 
             <CollectionView.ItemTemplate>
-
                 <DataTemplate>
-
                     <Border
                         Margin="0,5"
                         Padding="15"
+                        Background="{StaticResource CardBackground}"
+                        Stroke="{StaticResource BorderColor}"
                         StrokeShape="RoundRectangle 15">
 
                         <VerticalStackLayout Spacing="10">
@@ -121,25 +133,23 @@
                                 <Label
                                     FontAttributes="Bold"
                                     FontSize="16"
-                                    Text="{Binding ActionType}" />
+                                    Text="{Binding ActionType}"
+                                    TextColor="{StaticResource TextPrimary}" />
 
                                 <Label
                                     Grid.Column="1"
                                     FontSize="13"
                                     Opacity="0.7"
-                                    Text="{Binding ActionDate, StringFormat='📅 {0:dd/MM/yyyy}'}" />
+                                    Text="{Binding ActionDate, StringFormat='📅 {0:dd/MM/yyyy}'}"
+                                    TextColor="{StaticResource TextSecondary}" />
 
                             </Grid>
                         </VerticalStackLayout>
 
                     </Border>
-
                 </DataTemplate>
-
             </CollectionView.ItemTemplate>
-
         </CollectionView>
 
     </Grid>
-
 </ContentPage>

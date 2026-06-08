@@ -11,7 +11,8 @@ public static class DialogService
             new CustomDialogPopup(
                 "ℹ️",
                 "Información",
-                message));
+                message,
+                DialogType.Info));
     }
 
     public static async Task Warning(string message)
@@ -20,7 +21,8 @@ public static class DialogService
             new CustomDialogPopup(
                 "⚠️",
                 "Advertencia",
-                message));
+                message,
+                DialogType.Warning));
     }
 
     public static async Task Error(string message)
@@ -29,7 +31,8 @@ public static class DialogService
             new CustomDialogPopup(
                 "❌",
                 "Error",
-                message));
+                message,
+                DialogType.Error));
     }
 
     public static async Task Success(string message)
@@ -39,6 +42,7 @@ public static class DialogService
                 "🎉",
                 "Éxito",
                 message,
+                DialogType.Success,
                 "🚀 Continuar"));
     }
 }
