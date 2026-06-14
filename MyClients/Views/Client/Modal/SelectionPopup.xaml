@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<toolkit:Popup
+    x:Class="MyClients.Views.Modal.SelectionPopup"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    Color="Transparent">
+
+    <Border
+        Padding="20"
+        BackgroundColor="{StaticResource CardBackground}"
+        Stroke="{StaticResource BorderColor}"
+        StrokeShape="RoundRectangle 25"
+        WidthRequest="350">
+
+        <Grid RowDefinitions="Auto,Auto,*">
+
+            <Label
+                x:Name="lblTitle"
+                FontAttributes="Bold"
+                FontSize="22"
+                TextColor="{StaticResource TextPrimary}"
+                VerticalOptions="Center"
+                VerticalTextAlignment="Center" />
+
+            <Border
+                Grid.Row="1"
+                Margin="0,10,0,5"
+                Padding="10,0"
+                BackgroundColor="{StaticResource CardBackground}"
+                Stroke="{StaticResource BorderColor}"
+                StrokeShape="RoundRectangle 15">
+
+                <Grid ColumnDefinitions="Auto,*">
+                    <Label
+                        Margin="5,0,10,0"
+                        FontSize="18"
+                        Text="🔍"
+                        TextColor="{StaticResource Primary}"
+                        VerticalOptions="Center" />
+
+                    <Entry
+                        Grid.Column="1"
+                        Placeholder="Buscar..."
+                        PlaceholderColor="{StaticResource Gray500}"
+                        TextChanged="Search_TextChanged"
+                        TextColor="{StaticResource OffBlack}" />
+                </Grid>
+
+
+            </Border>
+
+            <CollectionView
+                x:Name="ItemsList"
+                Grid.Row="2"
+                ItemSizingStrategy="MeasureFirstItem"
+                SelectionMode="None">
+
+                <CollectionView.ItemTemplate>
+
+                    <DataTemplate>
+
+                        <Border
+                            Margin="0,4"
+                            Padding="10"
+                            BackgroundColor="{StaticResource CardBackground}"
+                            Stroke="{StaticResource BorderColor}"
+                            StrokeShape="RoundRectangle 12">
+
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer CommandParameter="{Binding}" Tapped="Item_Tapped" />
+                            </Border.GestureRecognizers>
+
+                            <Grid ColumnDefinitions="Auto,*">
+
+                                <Label
+                                    Margin="0,0,5,0"
+                                    FontSize="15"
+                                    Text="{Binding Emoji}" />
+
+                                <Label
+                                    Grid.Column="1"
+                                    FontAttributes="Bold"
+                                    Text="{Binding Title}"
+                                    TextColor="{StaticResource TextPrimary}"
+                                    VerticalOptions="Center"
+                                    VerticalTextAlignment="Center" />
+                            </Grid>
+
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </Border>
+
+</toolkit:Popup>

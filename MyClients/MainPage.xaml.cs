@@ -1,4 +1,5 @@
 ﻿using MyClients.Views;
+using MyClients.Views.Calendar;
 
 namespace MyClients
 {
@@ -17,6 +18,11 @@ namespace MyClients
         private async void ServiceButton_Clicked(object sender, TappedEventArgs e)
         {
             await Shell.Current.GoToAsync(nameof(ClientServicesPage));
+        }
+
+        private async void CalendarButton_Clicked(object sender, TappedEventArgs e)
+        {
+            await Shell.Current.GoToAsync(nameof(CalendarPage));
         }
     }
 }

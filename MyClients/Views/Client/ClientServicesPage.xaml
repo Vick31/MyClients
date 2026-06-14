@@ -36,19 +36,36 @@
                         TextColor="{StaticResource TextSecondary}" />
 
                     <Border
-                        Padding="10,5"
+                        Padding="15,10"
                         Background="{StaticResource CardBackground}"
                         Stroke="{StaticResource BorderColor}"
-                        StrokeShape="RoundRectangle 15">
+                        StrokeShape="RoundRectangle 15"
+                        VerticalOptions="Center">
 
-                        <Picker
-                            x:Name="pickerClient"
-                            Title="Seleccione un cliente"
-                            ItemDisplayBinding="{Binding Name}"
-                            ItemsSource="{Binding Clients}"
-                            SelectedItem="{Binding SelectedClient}"
-                            TextColor="{StaticResource OffBlack}" />
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="SelectClient_Tapped" />
+                        </Border.GestureRecognizers>
+
+                        <Grid ColumnDefinitions="*,Auto" VerticalOptions="Center">
+
+                            <Label
+                                x:Name="lblSelectedClient"
+                                FontAttributes="Bold"
+                                Text="Seleccionar cliente"
+                                TextColor="{StaticResource TextPrimary}"
+                                VerticalTextAlignment="Center" />
+
+                            <Label
+                                Grid.Column="1"
+                                FontSize="20"
+                                Text="⌄"
+                                TextColor="{StaticResource TextSecondary}"
+                                VerticalOptions="Center"
+                                VerticalTextAlignment="Center" />
+
+                        </Grid>
                     </Border>
+
                 </VerticalStackLayout>
 
 
@@ -124,6 +141,10 @@
                         Background="{StaticResource CardBackground}"
                         Stroke="{StaticResource BorderColor}"
                         StrokeShape="RoundRectangle 15">
+
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer CommandParameter="{Binding}" Tapped="Action_Tapped" />
+                        </Border.GestureRecognizers>
 
                         <VerticalStackLayout Spacing="10">
 

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    x:Class="MyClients.Views.Calendar.ReminderFormPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Nuevo Recordatorio">
+
+    <ScrollView>
+
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <Label
+                FontAttributes="Bold"
+                FontSize="28"
+                Text="📅 Nuevo Recordatorio" />
+
+            <Border Padding="20" StrokeShape="RoundRectangle 15">
+
+                <VerticalStackLayout Spacing="15">
+
+                    <Label FontAttributes="Bold" Text="📝 Título" />
+
+                    <Entry x:Name="TitleEntry" Placeholder="Ej: Corte de Cabello" />
+
+                    <Label FontAttributes="Bold" Text="📄 Descripción" />
+
+                    <Editor
+                        x:Name="DescriptionEditor"
+                        AutoSize="TextChanges"
+                        HeightRequest="120"
+                        Placeholder="Detalles del recordatorio..." />
+
+                    <Label FontAttributes="Bold" Text="📅 Fecha" />
+
+                    <DatePicker x:Name="DatePickerReminder" />
+
+                    <Label FontAttributes="Bold" Text="⏰ Hora" />
+
+                    <TimePicker x:Name="TimePickerReminder" />
+
+                </VerticalStackLayout>
+
+            </Border>
+
+            <Button
+                Clicked="SaveButton_Clicked"
+                CornerRadius="15"
+                HeightRequest="55"
+                Text="💾 Guardar Recordatorio" />
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>

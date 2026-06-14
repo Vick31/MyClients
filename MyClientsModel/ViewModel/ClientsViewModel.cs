@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 
 namespace MyClientsModel.ViewModel
 {
-    public class ClientsViewModel : INotifyPropertyChanged
+    public class ClientsViewModel : BaseViewModel
     {
         private readonly DatabaseService _database;
 
@@ -49,8 +49,9 @@ namespace MyClientsModel.ViewModel
             var clients = await _database.GetClientsAsync();
 
             _allClients = clients;
-
             Clients = new ObservableCollection<Client>(_allClients);
+
+            await Task.Delay(1000);
         }
 
         private void FilterClients()
@@ -67,13 +68,6 @@ namespace MyClientsModel.ViewModel
             }
 
             Clients = new ObservableCollection<Client>(filtered);
-        }
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        protected void OnPropertyChanged([CallerMemberName] string? propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

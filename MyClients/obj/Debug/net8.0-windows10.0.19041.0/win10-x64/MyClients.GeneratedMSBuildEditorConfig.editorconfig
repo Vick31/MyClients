@@ -52,38 +52,62 @@ build_metadata.AdditionalFiles.ManifestResourceName = MyClients.Resources.Styles
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
 
-[C:/Users/msper/source/repos/MyClients/MyClients/MyClients/Views/ClientActionPage.xaml]
+[C:/Users/msper/source/repos/MyClients/MyClients/MyClients/Views/Calendar/CalendarPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = MyClients.Views.ClientActionPage.xaml
-build_metadata.AdditionalFiles.TargetPath = Views\ClientActionPage.xaml
-build_metadata.AdditionalFiles.RelativePath = Views\ClientActionPage.xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MyClients.Views.Calendar.CalendarPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Calendar\CalendarPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Calendar\CalendarPage.xaml
 
-[C:/Users/msper/source/repos/MyClients/MyClients/MyClients/Views/ClientFormPage.xaml]
+[C:/Users/msper/source/repos/MyClients/MyClients/MyClients/Views/Calendar/ReminderFormPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = MyClients.Views.ClientFormPage.xaml
-build_metadata.AdditionalFiles.TargetPath = Views\ClientFormPage.xaml
-build_metadata.AdditionalFiles.RelativePath = Views\ClientFormPage.xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MyClients.Views.Calendar.ReminderFormPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Calendar\ReminderFormPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Calendar\ReminderFormPage.xaml
 
-[C:/Users/msper/source/repos/MyClients/MyClients/MyClients/Views/ClientServicesPage.xaml]
+[C:/Users/msper/source/repos/MyClients/MyClients/MyClients/Views/Client/ClientActionPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = MyClients.Views.ClientServicesPage.xaml
-build_metadata.AdditionalFiles.TargetPath = Views\ClientServicesPage.xaml
-build_metadata.AdditionalFiles.RelativePath = Views\ClientServicesPage.xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MyClients.Views.Client.ClientActionPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Client\ClientActionPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Client\ClientActionPage.xaml
 
-[C:/Users/msper/source/repos/MyClients/MyClients/MyClients/Views/ClientsPage.xaml]
+[C:/Users/msper/source/repos/MyClients/MyClients/MyClients/Views/Client/ClientFormPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = MyClients.Views.ClientsPage.xaml
-build_metadata.AdditionalFiles.TargetPath = Views\ClientsPage.xaml
-build_metadata.AdditionalFiles.RelativePath = Views\ClientsPage.xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MyClients.Views.Client.ClientFormPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Client\ClientFormPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Client\ClientFormPage.xaml
 
-[C:/Users/msper/source/repos/MyClients/MyClients/MyClients/Views/Modal/ClientOptionsModal.xaml]
+[C:/Users/msper/source/repos/MyClients/MyClients/MyClients/Views/Client/ClientServicesPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = MyClients.Views.Modal.ClientOptionsModal.xaml
-build_metadata.AdditionalFiles.TargetPath = Views\Modal\ClientOptionsModal.xaml
-build_metadata.AdditionalFiles.RelativePath = Views\Modal\ClientOptionsModal.xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MyClients.Views.Client.ClientServicesPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Client\ClientServicesPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Client\ClientServicesPage.xaml
 
-[C:/Users/msper/source/repos/MyClients/MyClients/MyClients/Views/Modal/CustomDialogPopup.xaml]
+[C:/Users/msper/source/repos/MyClients/MyClients/MyClients/Views/Client/ClientsPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = MyClients.Views.Modal.CustomDialogPopup.xaml
-build_metadata.AdditionalFiles.TargetPath = Views\Modal\CustomDialogPopup.xaml
-build_metadata.AdditionalFiles.RelativePath = Views\Modal\CustomDialogPopup.xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MyClients.Views.Client.ClientsPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Client\ClientsPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Client\ClientsPage.xaml
+
+[C:/Users/msper/source/repos/MyClients/MyClients/MyClients/Views/Client/Modal/ClientOptionsModal.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MyClients.Views.Client.Modal.ClientOptionsModal.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Client\Modal\ClientOptionsModal.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Client\Modal\ClientOptionsModal.xaml
+
+[C:/Users/msper/source/repos/MyClients/MyClients/MyClients/Views/Client/Modal/CustomDialogPopup.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MyClients.Views.Client.Modal.CustomDialogPopup.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Client\Modal\CustomDialogPopup.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Client\Modal\CustomDialogPopup.xaml
+
+[C:/Users/msper/source/repos/MyClients/MyClients/MyClients/Views/Client/Modal/LoadingPopup.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MyClients.Views.Client.Modal.LoadingPopup.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Client\Modal\LoadingPopup.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Client\Modal\LoadingPopup.xaml
+
+[C:/Users/msper/source/repos/MyClients/MyClients/MyClients/Views/Client/Modal/SelectionPopup.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MyClients.Views.Client.Modal.SelectionPopup.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Client\Modal\SelectionPopup.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Client\Modal\SelectionPopup.xaml

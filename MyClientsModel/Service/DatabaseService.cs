@@ -19,6 +19,7 @@ namespace MyClientsModel.Service
 
             await _database.CreateTableAsync<Client>();
             await _database.CreateTableAsync<ClientAction>();
+            await _database.CreateTableAsync<Reminder>();
         }
 
         public async Task<List<Client>> GetClientsAsync()
@@ -58,6 +59,15 @@ namespace MyClientsModel.Service
             return await _database!.Table<ClientAction>().ToListAsync();
         }
 
+        public async Task<ClientAction> GetClientActionIdAsync(int id)
+        {
+            await Init();
+
+            return await _database!
+                .Table<ClientAction>()
+                .FirstOrDefaultAsync(x => x.Id == id);
+        }
+
         public async Task<List<ClientAction>> GetServicesByClientAsync(int clientId)
         {
             await Init();
@@ -86,6 +96,29 @@ namespace MyClientsModel.Service
                 return await _database!.UpdateAsync(clientAction);
 
             return await _database!.InsertAsync(clientAction);
+        }
+
+        public async Task<List<Reminder>> GetRemindersByDateAsync(DateTime date)
+        {
+            await Init();
+
+            var start = date.Date;
+            var end = start.AddDays(1);
+
+            return await _database!
+                .Table<Reminder>()
+                .Where(x => x.Date >= start && x.Date < end)
+                .ToListAsync();
+        }
+
+        public async Task<int> SaveReminderAsync(Reminder reminder)
+        {
+            await Init();
+
+            if (reminder.Id != 0)
+                return await _database!.UpdateAsync(reminder);
+
+            return await _database!.InsertAsync(reminder);
         }
 
 

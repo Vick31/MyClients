@@ -1,4 +1,5 @@
 ﻿using MyClients.Helpers;
+using MyClientsModel.Data;
 using MyClientsModel.Model;
 using MyClientsModel.Service;
 
@@ -9,7 +10,7 @@ public partial class ClientFormPage : ContentPage
 {
     private readonly DatabaseService _database;
 
-    private readonly List<ColorOption> _colors;
+    private List<ColorOption> _colors = [];
 
     private ColorOption? _selectedColor;
 
@@ -31,46 +32,14 @@ public partial class ClientFormPage : ContentPage
         InitializeComponent();
 
         _database = database;
-
-        _colors =
-        [
-            new() { Name = "Coral",         Hex = "#FFAB91" },
-            new() { Name = "Rosado",        Hex = "#F48FB1" },
-            new() { Name = "Lavanda",       Hex = "#CE93D8" },
-            new() { Name = "Lila",          Hex = "#D1C4E9" },
-            new() { Name = "Violeta Claro", Hex = "#B39DDB" },
-
-            new() { Name = "Azul Claro",    Hex = "#90CAF9" },
-            new() { Name = "Azul Cielo",    Hex = "#81D4FA" },
-            new() { Name = "Turquesa",      Hex = "#80DEEA" },
-            new() { Name = "Aqua",          Hex = "#80CBC4" },
-
-            new() { Name = "Menta",         Hex = "#A5D6A7" },
-            new() { Name = "Verde Claro",   Hex = "#C5E1A5" },
-            new() { Name = "Pistacho",      Hex = "#DCE775" },
-
-            new() { Name = "Vainilla",      Hex = "#FFF59D" },
-            new() { Name = "Arena",         Hex = "#FFE082" },
-            new() { Name = "Durazno",       Hex = "#FFCC80" },
-            new() { Name = "Melón",         Hex = "#FFCCBC" },
-
-            new() { Name = "Café Claro",    Hex = "#BCAAA4" },
-            new() { Name = "Beige",         Hex = "#D7CCC8" },
-
-            new() { Name = "Gris Perla",    Hex = "#CFD8DC" },
-            new() { Name = "Gris Humo",     Hex = "#B0BEC5" }
-        ];
-
-        ColorsCollection.ItemsSource = _colors;
-
-        _selectedColor = _colors[0];
-
-        ColorsCollection.SelectedItem = _selectedColor;
+        LoadColors();
     }
 
     protected override async void OnAppearing()
     {
         base.OnAppearing();
+
+        LoadColors();
 
         if (_clientId <= 0)
             return;
@@ -99,6 +68,44 @@ public partial class ClientFormPage : ContentPage
             SelectedColorLabel.Text =
                 $"{selectedColor.Name} ({selectedColor.Hex})";
         }
+    }
+
+    private void LoadColors()
+    {
+        _colors =
+        [
+          new() { Name = "Coral",         Hex = "#FFAB91" },
+            new() { Name = "Rosado",        Hex = "#F48FB1" },
+            new() { Name = "Lavanda",       Hex = "#CE93D8" },
+            new() { Name = "Lila",          Hex = "#D1C4E9" },
+            new() { Name = "Violeta Claro", Hex = "#B39DDB" },
+
+            new() { Name = "Azul Claro",    Hex = "#90CAF9" },
+            new() { Name = "Azul Cielo",    Hex = "#81D4FA" },
+            new() { Name = "Turquesa",      Hex = "#80DEEA" },
+            new() { Name = "Aqua",          Hex = "#80CBC4" },
+
+            new() { Name = "Menta",         Hex = "#A5D6A7" },
+            new() { Name = "Verde Claro",   Hex = "#C5E1A5" },
+            new() { Name = "Pistacho",      Hex = "#DCE775" },
+
+            new() { Name = "Vainilla",      Hex = "#FFF59D" },
+            new() { Name = "Arena",         Hex = "#FFE082" },
+            new() { Name = "Durazno",       Hex = "#FFCC80" },
+            new() { Name = "Melón",         Hex = "#FFCCBC" },
+
+            new() { Name = "Café Claro",    Hex = "#BCAAA4" },
+            new() { Name = "Beige",         Hex = "#D7CCC8" },
+
+            new() { Name = "Gris Perla",    Hex = "#CFD8DC" },
+            new() { Name = "Gris Humo",     Hex = "#B0BEC5" }
+      ];
+
+        ColorsCollection.ItemsSource = _colors;
+
+        _selectedColor = _colors[0];
+
+        ColorsCollection.SelectedItem = _selectedColor;
     }
 
     private void ColorsCollection_SelectionChanged(
@@ -131,30 +138,22 @@ public partial class ClientFormPage : ContentPage
         Client client;
 
         if (_editingClient == null)
-        {
             client = new Client();
-        }
         else
-        {
             client = _editingClient;
-        }
 
         client.Name = NameEntry.Text ?? "";
         client.Phone = PhoneEntry.Text ?? "";
         client.ColorHex = _selectedColor?.Hex ?? "#90CAF9";
 
+        LoadingService.Show("Guardando datos del Cliente");
         await _database.SaveClientAsync(client);
+        LoadingService.Hide();
 
         if (_editingClient == null)
-        {
-            await DialogService.Success(
-                "Cliente creado correctamente.");
-        }
+            await DialogService.Success("Cliente creado correctamente.");
         else
-        {
-            await DialogService.Success(
-                "Cliente actualizado correctamente.");
-        }
+            await DialogService.Success("Cliente actualizado correctamente.");
 
         await Navigation.PopAsync();
     }

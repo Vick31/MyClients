@@ -1,4 +1,4 @@
-﻿namespace MyClientsModel.Model
+﻿namespace MyClientsModel.Data
 {
     public class ColorOption
     {

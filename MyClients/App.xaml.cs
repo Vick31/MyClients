@@ -1,4 +1,5 @@
 ﻿using MyClients.Views;
+using MyClients.Views.Calendar;
 
 namespace MyClients
 {
@@ -14,6 +15,8 @@ namespace MyClients
             Routing.RegisterRoute(nameof(ClientFormPage), typeof(ClientFormPage));
             Routing.RegisterRoute(nameof(ClientActionPage), typeof(ClientActionPage));
             Routing.RegisterRoute(nameof(ClientServicesPage), typeof(ClientServicesPage));
+            Routing.RegisterRoute(nameof(CalendarPage), typeof(CalendarPage));
+            Routing.RegisterRoute(nameof(ReminderFormPage), typeof(ReminderFormPage));
         }
     }
 }

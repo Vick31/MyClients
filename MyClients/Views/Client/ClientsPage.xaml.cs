@@ -1,4 +1,5 @@
 using CommunityToolkit.Maui.Views;
+using MyClients.Helpers;
 using MyClients.Views.Modal;
 using MyClientsModel.Model;
 using MyClientsModel.ViewModel;
@@ -19,7 +20,9 @@ public partial class ClientsPage : ContentPage
     {
         base.OnAppearing();
 
+        LoadingService.Show("Cargando Clientes");
         await _viewModel.LoadClientsAsync();
+        LoadingService.Hide();
     }
 
     private async void NewClientButton_Clicked(object sender, EventArgs e)
@@ -31,8 +34,7 @@ public partial class ClientsPage : ContentPage
     {
         if (e.Parameter is Client client)
         {
-            await this.ShowPopupAsync(
-            new ClientOptionsPopup(client.Id));
+            await this.ShowPopupAsync(new ClientOptionsPopup(client.Id));
         }
     }
 }

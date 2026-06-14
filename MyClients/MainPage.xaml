@@ -35,7 +35,7 @@
 
                     </VerticalStackLayout>
                 </Frame>
-                
+
                 <Frame
                     Padding="10"
                     HeightRequest="100"
@@ -55,6 +55,29 @@
                             FontAttributes="Bold"
                             HorizontalOptions="Center"
                             Text="Servicios" />
+
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame
+                    Padding="10"
+                    HeightRequest="100"
+                    WidthRequest="100">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="CalendarButton_Clicked" />
+                    </Frame.GestureRecognizers>
+
+                    <VerticalStackLayout VerticalOptions="Center">
+
+                        <Label
+                            FontSize="40"
+                            HorizontalOptions="Center"
+                            Text="📅" />
+
+                        <Label
+                            FontAttributes="Bold"
+                            HorizontalOptions="Center"
+                            Text="Calendario" />
 
                     </VerticalStackLayout>
                 </Frame>

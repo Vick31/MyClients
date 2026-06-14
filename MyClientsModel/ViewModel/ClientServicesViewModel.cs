@@ -1,10 +1,9 @@
 ﻿using MyClientsModel.Model;
 using MyClientsModel.Service;
+using MyClientsModel.ViewModel;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
 
-public class ClientServicesViewModel : INotifyPropertyChanged
+public class ClientServicesViewModel : BaseViewModel
 {
     private readonly DatabaseService _database;
 
@@ -63,12 +62,5 @@ public class ClientServicesViewModel : INotifyPropertyChanged
 
         var services = await _database.GetServicesByClientAsync(clientId);
         ClientAction = new ObservableCollection<ClientAction>(services);
-    }
-
-    public event PropertyChangedEventHandler? PropertyChanged;
-
-    private void OnPropertyChanged([CallerMemberName] string? propertyName = null)
-    {
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 }

@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
 using MyClients.Views;
+using MyClients.Views.Calendar;
 using MyClientsModel.Service;
 using MyClientsModel.ViewModel;
 
@@ -31,12 +32,15 @@ namespace MyClients
             builder.Services.AddTransient<ClientsViewModel>();
             builder.Services.AddTransient<ClientActionViewModel>();
             builder.Services.AddTransient<ClientServicesViewModel>();
+            builder.Services.AddTransient<CalendarViewModel>();
 
             // Forms
             builder.Services.AddTransient<ClientsPage>();
             builder.Services.AddTransient<ClientFormPage>();
             builder.Services.AddTransient<ClientActionPage>();
             builder.Services.AddTransient<ClientServicesPage>();
+            builder.Services.AddTransient<CalendarPage>();
+            builder.Services.AddTransient<ReminderFormPage>();
 
             return builder.Build();
         }

@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 
 namespace MyClientsModel.ViewModel
 {
-    public class ClientActionViewModel : INotifyPropertyChanged
+    public class ClientActionViewModel : BaseViewModel
     {
         private readonly DatabaseService _database;
 
@@ -26,13 +26,6 @@ namespace MyClientsModel.ViewModel
             _database = database;
         }
 
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        protected void OnPropertyChanged([CallerMemberName] string? propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
         public async Task LoadClientsAsync()
         {
             var clientAction = await _database.GetClientActionAsync();
@@ -43,6 +36,12 @@ namespace MyClientsModel.ViewModel
         {
             var clientActionSave = await _database.SaveClientActionAsync(clientAction);
             await LoadClientsAsync();
+        }
+
+        public async Task<ClientAction> GetActionAsync(int actionId)
+        {
+            var clientAction = await _database.GetClientActionIdAsync(actionId);
+            return clientAction;
         }
     }
 }
