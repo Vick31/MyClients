@@ -71,14 +71,12 @@ public partial class CraftsPage : ContentPage
         {
             EnviarButton.IsEnabled = false;
 
-            Api.InicializarApi("66.23.229.246");
+            var response = await _httpClient.PostAsJsonAsync("http://66.23.229.246/api/manualidades/Guardar", request);
 
-            var response = Api.ApiPOST("/api/manualidades/Guardar", JsonConvert.SerializeObject(request));
-
-            if (response.Estado == "")
+            if (response.IsSuccessStatusCode)
                 await DisplayAlert("Éxito", "Enviado correctamente.", "OK");
             else
-                await DisplayAlert("Error", $"Falló el envío: {response.DetalleTexto()}", "OK");
+                await DisplayAlert("Error", $"Falló el envío: {response.StatusCode}", "OK");
         }
         catch (Exception ex)
         {
