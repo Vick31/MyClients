@@ -1,6 +1,6 @@
-﻿using MyClientsModel.Model;
+﻿using CommunityToolkit.Maui.Storage;
+using MyClientsModel.Model;
 using SQLite;
-
 
 namespace MyClientsModel.Service
 {
@@ -8,12 +8,19 @@ namespace MyClientsModel.Service
     {
         private SQLiteAsyncConnection? _database;
 
+        private string GetDatabasePath()
+        {
+            return Path.Combine(
+                Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+                "clients.db3");
+        }
+
         private async Task Init()
         {
             if (_database != null)
                 return;
 
-            string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "clients.db3");
+            string dbPath = GetDatabasePath();
 
             _database = new SQLiteAsyncConnection(dbPath);
 
@@ -21,6 +28,39 @@ namespace MyClientsModel.Service
             await _database.CreateTableAsync<ClientAction>();
             await _database.CreateTableAsync<Reminder>();
         }
+
+        public async Task BackupDatabaseAsync()
+        {
+            await Init();
+
+            string sourcePath = GetDatabasePath();
+
+            if (!File.Exists(sourcePath))
+                throw new Exception("La base de datos no existe.");
+
+            // Cerrar SQLite temporalmente
+            if (_database != null)
+            {
+                await _database.CloseAsync();
+                _database = null;
+            }
+
+            string fileName =
+                $"MyClients_Backup_{DateTime.Now:yyyyMMdd_HHmmss}.db3";
+
+            byte[] bytes = await File.ReadAllBytesAsync(sourcePath);
+
+            using var stream = new MemoryStream(bytes);
+
+            var result = await FileSaver.Default.SaveAsync(
+                fileName,
+                stream,
+                CancellationToken.None);
+
+            if (!result.IsSuccessful)
+                throw new Exception(result.Exception?.Message ?? "No se pudo guardar la copia.");
+        }
+
 
         public async Task<List<Client>> GetClientsAsync()
         {

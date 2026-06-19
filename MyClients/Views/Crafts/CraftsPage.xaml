@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MyClients.Views.Crafts.CraftsPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="CraftsPage">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <Entry x:Name="TituloEntry" Placeholder="Título" />
+
+            <Entry x:Name="CategoriaEntry" Placeholder="Categoría" />
+
+            <Editor
+                x:Name="DescripcionEditor"
+                AutoSize="TextChanges"
+                HeightRequest="100"
+                Placeholder="Descripción" />
+
+            <Button Clicked="OnSeleccionarFotoClicked" Text="Seleccionar foto" />
+
+            <Image
+                x:Name="PreviewImage"
+                Aspect="AspectFit"
+                HeightRequest="200"
+                IsVisible="False" />
+
+            <Button
+                x:Name="EnviarButton"
+                Clicked="OnEnviarClicked"
+                Text="Enviar" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

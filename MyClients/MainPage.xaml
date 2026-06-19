@@ -82,6 +82,52 @@
                     </VerticalStackLayout>
                 </Frame>
 
+                <Frame
+                    Padding="10"
+                    HeightRequest="100"
+                    WidthRequest="100">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="BtnManualidades_Clicked" />
+                    </Frame.GestureRecognizers>
+
+                    <VerticalStackLayout VerticalOptions="Center">
+
+                        <Label
+                            FontSize="40"
+                            HorizontalOptions="Center"
+                            Text="🧷" />
+
+                        <Label
+                            FontAttributes="Bold"
+                            HorizontalOptions="Center"
+                            Text="Manualidades" />
+
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame
+                    Padding="10"
+                    HeightRequest="100"
+                    WidthRequest="100">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="BtnBackup_Clicked" />
+                    </Frame.GestureRecognizers>
+
+                    <VerticalStackLayout VerticalOptions="Center">
+
+                        <Label
+                            FontSize="40"
+                            HorizontalOptions="Center"
+                            Text="🫙" />
+
+                        <Label
+                            FontAttributes="Bold"
+                            HorizontalOptions="Center"
+                            Text="Copia BD" />
+
+                    </VerticalStackLayout>
+                </Frame>
+
             </FlexLayout>
 
         </VerticalStackLayout>
