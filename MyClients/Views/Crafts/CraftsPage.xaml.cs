@@ -1,3 +1,4 @@
+using MyClients.Helpers;
 using MyClientsModel.Data;
 using Newtonsoft.Json;
 using System.Net.Http.Json;
@@ -71,7 +72,9 @@ public partial class CraftsPage : ContentPage
         {
             EnviarButton.IsEnabled = false;
 
-            var response = await _httpClient.PostAsJsonAsync("http://66.23.229.246/api/manualidades/Guardar", request);
+            LoadingService.Show("Subiendo Archivos");
+            var response = await _httpClient.PostAsJsonAsync("https://manualidadesvictoria.essaone.cloud/api/manualidades/Guardar", request);
+        LoadingService.Hide();
 
             if (response.IsSuccessStatusCode)
                 await DisplayAlert("Éxito", "Enviado correctamente.", "OK");
