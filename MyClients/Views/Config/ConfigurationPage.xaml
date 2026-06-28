@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MyClients.Views.Config.ConfigurationPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title=""
+    BackgroundColor="{StaticResource PageBackground}">
+
+    <ScrollView>
+
+        <VerticalStackLayout Padding="20" Spacing="25">
+
+            <Label
+                FontAttributes="Bold"
+                FontSize="28"
+                Text="⚙️ Configuración"
+                TextColor="{StaticResource TextPrimary}" />
+
+            <!--  Personalización  -->
+
+            <Label
+                FontAttributes="Bold"
+                FontSize="18"
+                Text="Personalización"
+                TextColor="{StaticResource TextSecondary}" />
+
+            <Border
+                Background="{StaticResource CardBackground}"
+                Stroke="{StaticResource BorderColor}"
+                StrokeShape="RoundRectangle 15"
+                StrokeThickness="1">
+
+                <VerticalStackLayout>
+
+                    <Grid Padding="15" ColumnDefinitions="Auto,*,Auto">
+                        <Label Text="🌙" />
+                        <Label
+                            Grid.Column="1"
+                            Margin="5,0"
+                            Text="Tema"
+                            TextColor="{StaticResource TextPrimary}" />
+                        <Label
+                            Grid.Column="2"
+                            Text="Sistema"
+                            TextColor="{StaticResource TextSecondary}" />
+                    </Grid>
+
+                    <BoxView HeightRequest="1" />
+
+                    <Grid Padding="15" ColumnDefinitions="Auto,*,Auto">
+                        <Label Text="🌐" />
+                        <Label
+                            Grid.Column="1"
+                            Margin="5,0"
+                            Text="Idioma"
+                            TextColor="{StaticResource TextPrimary}" />
+                        <Label
+                            Grid.Column="2"
+                            Text="Español"
+                            TextColor="{StaticResource TextSecondary}" />
+                    </Grid>
+
+                </VerticalStackLayout>
+
+            </Border>
+
+            <!--  Calendario  -->
+
+            <Label
+                FontAttributes="Bold"
+                FontSize="18"
+                Text="Calendario"
+                TextColor="{StaticResource TextSecondary}" />
+
+            <Border
+                Background="{StaticResource CardBackground}"
+                Stroke="{StaticResource BorderColor}"
+                StrokeShape="RoundRectangle 15"
+                StrokeThickness="1">
+
+                <VerticalStackLayout>
+
+                    <Grid Padding="15" ColumnDefinitions="Auto,*,Auto">
+                        <Label Text="📅" />
+                        <Label
+                            Grid.Column="1"
+                            Margin="5,0"
+                            Text="Primer día"
+                            TextColor="{StaticResource TextPrimary}" />
+                        <Label
+                            Grid.Column="2"
+                            Text="Lunes"
+                            TextColor="{StaticResource TextSecondary}" />
+                    </Grid>
+
+                    <BoxView HeightRequest="1" />
+
+                    <Grid
+                        Padding="15"
+                        ColumnDefinitions="Auto,*,Auto"
+                        VerticalOptions="Center">
+
+                        <Label Text="🔔" />
+
+                        <Label
+                            Grid.Column="1"
+                            Margin="5,0"
+                            Text="Recordatorios"
+                            TextColor="{StaticResource TextPrimary}" />
+
+                        <Switch
+                            Grid.Column="2"
+                            HeightRequest="0"
+                            IsToggled="True" />
+
+                    </Grid>
+
+                    <BoxView HeightRequest="1" />
+
+                    <Grid Padding="15" ColumnDefinitions="Auto,*,Auto">
+                        <Label Text="⏰" />
+                        <Label
+                            Grid.Column="1"
+                            Margin="5,0"
+                            Text="Hora por defecto"
+                            TextColor="{StaticResource TextPrimary}" />
+                        <Label
+                            Grid.Column="2"
+                            Text="08:00"
+                            TextColor="{StaticResource TextSecondary}" />
+                    </Grid>
+
+                </VerticalStackLayout>
+
+            </Border>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+</ContentPage>

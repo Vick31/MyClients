@@ -108,6 +108,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = MyClients.Views.Client.Mod
 build_metadata.AdditionalFiles.TargetPath = Views\Client\Modal\SelectionPopup.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\Client\Modal\SelectionPopup.xaml
 
+[C:/Users/msper/source/repos/MyClients/MyClients/MyClients/Views/Config/ConfigurationPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MyClients.Views.Config.ConfigurationPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Config\ConfigurationPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Config\ConfigurationPage.xaml
+
 [C:/Users/msper/source/repos/MyClients/MyClients/MyClients/Views/Crafts/CraftsPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MyClients.Views.Crafts.CraftsPage.xaml

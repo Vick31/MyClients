@@ -1,5 +1,6 @@
 ﻿using MyClients.Views;
 using MyClients.Views.Calendar;
+using MyClients.Views.Config;
 using MyClients.Views.Crafts;
 
 namespace MyClients
@@ -19,6 +20,7 @@ namespace MyClients
             Routing.RegisterRoute(nameof(CalendarPage), typeof(CalendarPage));
             Routing.RegisterRoute(nameof(ReminderFormPage), typeof(ReminderFormPage));
             Routing.RegisterRoute(nameof(CraftsPage), typeof(CraftsPage));
+            Routing.RegisterRoute(nameof(ConfigurationPage), typeof(ConfigurationPage));
         }
     }
 }

@@ -3,134 +3,285 @@
     x:Class="MyClients.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    Title="">
-
+    Title=""
+    BackgroundColor="{StaticResource PageBackground}">
     <ScrollView>
-        <VerticalStackLayout Padding="20">
 
-            <FlexLayout
-                Direction="Row"
-                JustifyContent="Start"
-                Wrap="Wrap">
+        <VerticalStackLayout Padding="20" Spacing="20">
+            <VerticalStackLayout>
+                <Label
+                    FontSize="16"
+                    Text="Buenos días"
+                    TextColor="{StaticResource TextPrimary}" />
 
-                <Frame
-                    Padding="10"
-                    HeightRequest="100"
-                    WidthRequest="100">
-                    <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="ClientsButton_Clicked" />
-                    </Frame.GestureRecognizers>
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="28"
+                    Text="Jueves, 27 de Junio"
+                    TextColor="{StaticResource TextSecondary}" />
 
-                    <VerticalStackLayout VerticalOptions="Center">
+            </VerticalStackLayout>
+
+            <!--  Eventos de Hoy  -->
+
+            <Border
+                Background="{StaticResource CardBackground}"
+                Stroke="{StaticResource BorderColor}"
+                StrokeShape="RoundRectangle 20"
+                StrokeThickness="0">
+
+                <VerticalStackLayout Padding="18">
+
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="20"
+                        Text="📅 Eventos de Hoy"
+                        TextColor="{StaticResource TextPrimary}" />
+
+                    <CollectionView Margin="0,15,0,0" ItemsSource="{Binding EventosHoy}">
+                        <CollectionView.EmptyView>
+                            <VerticalStackLayout
+                                Padding="20"
+                                HorizontalOptions="Center"
+                                Spacing="10"
+                                VerticalOptions="Center">
+
+                                <Label
+                                    FontSize="48"
+                                    HorizontalOptions="Center"
+                                    Text="🎉" />
+
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="18"
+                                    HorizontalOptions="Center"
+                                    Text="No tienes eventos para hoy."
+                                    TextColor="{StaticResource TextPrimary}" />
+
+                                <Label
+                                    FontSize="14"
+                                    HorizontalOptions="Center"
+                                    HorizontalTextAlignment="Center"
+                                    Text="Disfruta tu día, no hay actividades programadas."
+                                    TextColor="{StaticResource TextSecondary}" />
+
+                            </VerticalStackLayout>
+                        </CollectionView.EmptyView>
+
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Padding="0,8" ColumnDefinitions="70,*">
+                                    <Label
+                                        FontAttributes="Bold"
+                                        Text="{Binding Hora}"
+                                        TextColor="{StaticResource TextSecondary}"
+                                        VerticalOptions="Center" />
+
+                                    <Label
+                                        Grid.Column="1"
+                                        Text="{Binding Titulo}"
+                                        TextColor="{StaticResource TextPrimary}"
+                                        VerticalOptions="Center" />
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+                    <Button
+                        Margin="0,10,0,0"
+                        BackgroundColor="Transparent"
+                        HorizontalOptions="End"
+                        Text="Ver agenda completa" />
+
+                </VerticalStackLayout>
+
+            </Border>
+
+            <!--  Categorías  -->
+
+            <Label
+                FontAttributes="Bold"
+                FontSize="22"
+                Text="Categorías"
+                TextColor="{StaticResource TextPrimary}" />
+
+            <Grid
+                ColumnDefinitions="*,*"
+                ColumnSpacing="15"
+                RowDefinitions="Auto,Auto,Auto"
+                RowSpacing="15">
+
+                <Border
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Background="{StaticResource CardBackground}"
+                    Stroke="{StaticResource BorderColor}"
+                    StrokeShape="RoundRectangle 18"
+                    StrokeThickness="0">
+
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer CommandParameter="{Binding}" Tapped="Calendar_Tapped" />
+                    </Border.GestureRecognizers>
+
+                    <VerticalStackLayout
+                        Padding="18"
+                        HorizontalOptions="Center"
+                        Spacing="8">
 
                         <Label
-                            FontSize="40"
-                            HorizontalOptions="Center"
-                            Text="👥" />
-
-                        <Label
-                            FontAttributes="Bold"
-                            HorizontalOptions="Center"
-                            Text="Clientes" />
-
-                    </VerticalStackLayout>
-                </Frame>
-
-                <Frame
-                    Padding="10"
-                    HeightRequest="100"
-                    WidthRequest="100">
-                    <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="ServiceButton_Clicked" />
-                    </Frame.GestureRecognizers>
-
-                    <VerticalStackLayout VerticalOptions="Center">
-
-                        <Label
-                            FontSize="40"
-                            HorizontalOptions="Center"
-                            Text="💇🏼‍♀️" />
-
-                        <Label
-                            FontAttributes="Bold"
-                            HorizontalOptions="Center"
-                            Text="Servicios" />
-
-                    </VerticalStackLayout>
-                </Frame>
-
-                <Frame
-                    Padding="10"
-                    HeightRequest="100"
-                    WidthRequest="100">
-                    <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="CalendarButton_Clicked" />
-                    </Frame.GestureRecognizers>
-
-                    <VerticalStackLayout VerticalOptions="Center">
-
-                        <Label
-                            FontSize="40"
+                            FontSize="32"
                             HorizontalOptions="Center"
                             Text="📅" />
 
                         <Label
-                            FontAttributes="Bold"
                             HorizontalOptions="Center"
-                            Text="Calendario" />
+                            Text="Agenda"
+                            TextColor="{StaticResource TextPrimary}" />
 
                     </VerticalStackLayout>
-                </Frame>
 
-                <Frame
-                    Padding="10"
-                    HeightRequest="100"
-                    WidthRequest="100">
-                    <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="BtnManualidades_Clicked" />
-                    </Frame.GestureRecognizers>
+                </Border>
 
-                    <VerticalStackLayout VerticalOptions="Center">
+                <Border
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Background="{StaticResource CardBackground}"
+                    Stroke="{StaticResource BorderColor}"
+                    StrokeShape="RoundRectangle 18"
+                    StrokeThickness="0">
+
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer CommandParameter="{Binding}" Tapped="Task_Tapped" />
+                    </Border.GestureRecognizers>
+
+                    <VerticalStackLayout Padding="18" Spacing="8">
 
                         <Label
-                            FontSize="40"
+                            FontSize="32"
                             HorizontalOptions="Center"
-                            Text="🧷" />
+                            Text="✅" />
 
                         <Label
-                            FontAttributes="Bold"
                             HorizontalOptions="Center"
-                            Text="Manualidades" />
+                            Text="Tareas"
+                            TextColor="{StaticResource TextPrimary}" />
 
                     </VerticalStackLayout>
-                </Frame>
 
-                <Frame
-                    Padding="10"
-                    HeightRequest="100"
-                    WidthRequest="100">
-                    <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="BtnBackup_Clicked" />
-                    </Frame.GestureRecognizers>
+                </Border>
 
-                    <VerticalStackLayout VerticalOptions="Center">
+                <Border
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Background="{StaticResource CardBackground}"
+                    Stroke="{StaticResource BorderColor}"
+                    StrokeShape="RoundRectangle 18"
+                    StrokeThickness="0">
+
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer CommandParameter="{Binding}" Tapped="Reminder_Tapped" />
+                    </Border.GestureRecognizers>
+
+                    <VerticalStackLayout Padding="18">
 
                         <Label
-                            FontSize="40"
+                            FontSize="32"
                             HorizontalOptions="Center"
-                            Text="🫙" />
+                            Text="🔔" />
 
                         <Label
-                            FontAttributes="Bold"
                             HorizontalOptions="Center"
-                            Text="Copia BD" />
+                            Text="Recordatorios"
+                            TextColor="{StaticResource TextPrimary}" />
 
                     </VerticalStackLayout>
-                </Frame>
 
-            </FlexLayout>
+                </Border>
 
+                <Border
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Background="{StaticResource CardBackground}"
+                    Stroke="{StaticResource BorderColor}"
+                    StrokeShape="RoundRectangle 18"
+                    StrokeThickness="0">
+
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer CommandParameter="{Binding}" Tapped="Contact_Tapped" />
+                    </Border.GestureRecognizers>
+
+                    <VerticalStackLayout Padding="18">
+
+                        <Label
+                            FontSize="32"
+                            HorizontalOptions="Center"
+                            Text="👥" />
+
+                        <Label
+                            HorizontalOptions="Center"
+                            Text="Contactos"
+                            TextColor="{StaticResource TextPrimary}" />
+
+                    </VerticalStackLayout>
+
+                </Border>
+
+                <Border
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Background="{StaticResource CardBackground}"
+                    Stroke="{StaticResource BorderColor}"
+                    StrokeShape="RoundRectangle 18"
+                    StrokeThickness="0">
+
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer CommandParameter="{Binding}" Tapped="Statistics_Tapped" />
+                    </Border.GestureRecognizers>
+
+                    <VerticalStackLayout Padding="18">
+
+                        <Label
+                            FontSize="32"
+                            HorizontalOptions="Center"
+                            Text="📊" />
+
+                        <Label
+                            HorizontalOptions="Center"
+                            Text="Estadísticas"
+                            TextColor="{StaticResource TextPrimary}" />
+
+                    </VerticalStackLayout>
+
+                </Border>
+
+                <Border
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Background="{StaticResource CardBackground}"
+                    Stroke="{StaticResource BorderColor}"
+                    StrokeShape="RoundRectangle 18"
+                    StrokeThickness="0">
+
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer CommandParameter="{Binding}" Tapped="Configuration_Tapped" />
+                    </Border.GestureRecognizers>
+
+                    <VerticalStackLayout Padding="18">
+
+                        <Label
+                            FontSize="32"
+                            HorizontalOptions="Center"
+                            Text="⚙️" />
+
+                        <Label
+                            HorizontalOptions="Center"
+                            Text="Configuración"
+                            TextColor="{StaticResource TextPrimary}" />
+
+                    </VerticalStackLayout>
+                </Border>
+            </Grid>
         </VerticalStackLayout>
-    </ScrollView>
 
+    </ScrollView>
 </ContentPage>

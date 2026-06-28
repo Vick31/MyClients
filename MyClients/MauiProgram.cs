@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Logging;
 using MyClients.Views;
 using MyClients.Views.Calendar;
+using MyClients.Views.Config;
 using MyClientsModel.Service;
 using MyClientsModel.ViewModel;
 
@@ -41,6 +42,7 @@ namespace MyClients
             builder.Services.AddTransient<ClientServicesPage>();
             builder.Services.AddTransient<CalendarPage>();
             builder.Services.AddTransient<ReminderFormPage>();
+            builder.Services.AddTransient<ConfigurationPage>();
 
             return builder.Build();
         }
